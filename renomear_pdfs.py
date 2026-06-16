@@ -1,0 +1,462 @@
+#!/usr/bin/env python3
+"""
+Processador de PDFs bancários.
+
+Etapa 1: Pergunta o banco.
+Etapa 2: Verifica páginas — se > 1, separa em PDFs individuais.
+Etapa 3: Identifica o tipo de pagamento e renomeia DATA BENEFICIARIO VALOR.
+"""
+
+import os
+import re
+import sys
+from pathlib import Path
+
+import pdfplumber
+from pypdf import PdfReader, PdfWriter
+
+
+# ---------------------------------------------------------------------------
+# Mapeamento de convênios BB DDA
+# ---------------------------------------------------------------------------
+CONVENIOS_BB = {
+    "011015 VIVO FIXO NACIONAL 13 DIG": "VIVO FIXO NACIONAL",
+    # adicione outros aqui conforme necessário
+}
+
+
+# ---------------------------------------------------------------------------
+# Helpers gerais
+# ---------------------------------------------------------------------------
+
+def extrair_texto(caminho_pdf: Path) -> str:
+    """Extrai todo o texto do PDF com pdfplumber."""
+    partes = []
+    with pdfplumber.open(str(caminho_pdf)) as pdf:
+        for pagina in pdf.pages:
+            partes.append(pagina.extract_text() or "")
+    return "\n".join(partes)
+
+
+def limpar_data(valor: str) -> str:
+    """
+    Remove tudo que não seja dígito e retorna apenas os 8 primeiros dígitos
+    (DDMMAAAA).  Exemplos:
+      '15/06/2026'              -> '15062026'
+      '15/06/2026 - 14:30:55'  -> '15062026'
+      '15.06.2026'              -> '15062026'
+    """
+    return re.sub(r"\D", "", valor)[:8]
+
+
+def limpar_valor_monetario(valor: str) -> str:
+    """
+    Remove prefixos como 'R$' e espaços extras, mantendo o número formatado.
+    Ex: 'R$ 1.200,00' -> '1.200,00'
+    """
+    valor = re.sub(r"R\$\s*", "", valor).strip()
+    return valor
+
+
+def limpar_nome_destinatario(valor: str) -> str:
+    """
+    Remove CPF/CNPJ que possam aparecer junto ao nome.
+    Ex: 'Douglas Gabriel 10845579401' -> 'Douglas Gabriel'
+    Estratégia: remove sequências de 11 ou 14 dígitos (com ou sem máscara).
+    """
+    valor = re.sub(r"\d{3}\.?\d{3}\.?\d{3}[-.]?\d{2}", "", valor)  # CPF
+    valor = re.sub(r"\d{2}\.?\d{3}\.?\d{3}/?\d{4}-?\d{2}", "", valor)  # CNPJ
+    valor = re.sub(r"\b\d{11}\b", "", valor)  # CPF sem formatação
+    valor = re.sub(r"\b\d{14}\b", "", valor)  # CNPJ sem formatação
+    return valor.strip()
+
+
+def extrair_campo_linha(texto: str, rotulo: str) -> str | None:
+    """
+    Encontra a linha que contém o rótulo e retorna o que vem depois dele.
+    Busca case-insensitive.
+    """
+    rotulo_lower = rotulo.lower()
+    for linha in texto.splitlines():
+        linha_strip = linha.strip()
+        idx = linha_strip.lower().find(rotulo_lower)
+        if idx != -1:
+            valor = linha_strip[idx + len(rotulo):].strip()
+            if valor:
+                return valor
+    return None
+
+
+def sanitizar_nome(nome: str) -> str:
+    """Remove caracteres inválidos para nome de arquivo."""
+    nome = re.sub(r'[\\/*?:"<>|]', "", nome)
+    return re.sub(r"\s+", " ", nome).strip()
+
+
+def gerar_caminho_disponivel(pasta: Path, nome_base: str, ext: str = ".pdf") -> Path:
+    """Retorna um caminho que não exista ainda; adiciona (1), (2)... se necessário."""
+    candidato = pasta / f"{nome_base}{ext}"
+    if not candidato.exists():
+        return candidato
+    i = 1
+    while True:
+        candidato = pasta / f"{nome_base} ({i}){ext}"
+        if not candidato.exists():
+            return candidato
+        i += 1
+
+
+def montar_nome(data: str, beneficiario: str, valor: str) -> str:
+    partes = [p for p in [data, beneficiario, valor] if p]
+    return sanitizar_nome(" ".join(partes))
+
+
+def renomear_pdf(caminho: Path, nome_base: str) -> Path:
+    novo = gerar_caminho_disponivel(caminho.parent, nome_base)
+    caminho.rename(novo)
+    print(f"     ✔ '{caminho.name}' → '{novo.name}'")
+    return novo
+
+
+# ---------------------------------------------------------------------------
+# Etapa 1 – Separar páginas
+# ---------------------------------------------------------------------------
+
+def separar_paginas(caminho_pdf: Path, pasta_saida: Path) -> list[Path]:
+    """
+    Se o PDF tiver > 1 página, separa e retorna lista de arquivos gerados.
+    Se tiver 1 página, retorna lista com o próprio arquivo.
+    """
+    leitor = PdfReader(str(caminho_pdf))
+    total = len(leitor.pages)
+
+    if total <= 1:
+        return [caminho_pdf]
+
+    print(f"   PDF com {total} páginas — separando...")
+    gerados = []
+    for i, pag in enumerate(leitor.pages, start=1):
+        escritor = PdfWriter()
+        escritor.add_page(pag)
+        nome_pag = f"{caminho_pdf.stem} - pagina {i}"
+        destino = gerar_caminho_disponivel(pasta_saida, nome_pag)
+        with open(destino, "wb") as f:
+            escritor.write(f)
+        print(f"     -> Página {i}/{total}: {destino.name}")
+        gerados.append(destino)
+
+    return gerados
+
+
+# ---------------------------------------------------------------------------
+# Handlers por banco / tipo
+# ---------------------------------------------------------------------------
+
+def handle_bb_dda(texto: str, caminho: Path):
+    if "COMPROVANTE DE DEBITO AUTOMATICO" not in texto.upper():
+        return False
+
+    convenio_raw = extrair_campo_linha(texto, "CONVENIO:")
+    data_raw     = extrair_campo_linha(texto, "DATA DO DEBITO:")
+    valor_raw    = extrair_campo_linha(texto, "VALOR DO DEBITO R$")
+
+    if not all([convenio_raw, data_raw, valor_raw]):
+        print("   [AVISO] BB DDA – campo(s) não encontrado(s). Arquivo não renomeado.")
+        return True
+
+    # Normaliza convênio
+    convenio_upper = convenio_raw.upper().strip()
+    convenio = CONVENIOS_BB.get(convenio_upper, convenio_raw.strip())
+
+    data  = limpar_data(data_raw)
+    valor = limpar_valor_monetario(valor_raw)
+
+    renomear_pdf(caminho, montar_nome(data, convenio, valor))
+    return True
+
+
+def handle_bb_folha(texto: str, caminho: Path):
+    if "Visualizador de arquivos retorno" not in texto:
+        return False
+
+    favorecido_raw = extrair_campo_linha(texto, "Favorecido:")
+    data_raw       = extrair_campo_linha(texto, "Data real pagamento:")
+    valor_raw      = extrair_campo_linha(texto, "Valor real pagamento:")
+
+    if not all([favorecido_raw, data_raw, valor_raw]):
+        print("   [AVISO] BB Folha – campo(s) não encontrado(s). Arquivo não renomeado.")
+        return True
+
+    data  = limpar_data(data_raw)
+    valor = limpar_valor_monetario(valor_raw)
+
+    renomear_pdf(caminho, montar_nome(data, favorecido_raw.strip(), valor))
+    return True
+
+
+def handle_bb_boleto_convenio(texto: str, caminho: Path):
+    """
+    Cobre comprovantes SISBB do tipo:
+      COMPROVANTE DE PAGAMENTO  (boleto / convênio)
+    Campos: Convenio / Data do pagamento / Valor Total
+    Obs: os rótulos NÃO têm ':' neste modelo.
+    """
+    texto_upper = texto.upper()
+    # Garante que é este modelo e não o Pagamento Eletrônico
+    if "COMPROVANTE DE PAGAMENTO" not in texto_upper:
+        return False
+    if "COMPROVANTE DE PAGAMENTO ELETRONICO" in texto_upper:
+        return False
+
+    convenio_raw = extrair_campo_linha(texto, "Convenio ")
+    data_raw     = extrair_campo_linha(texto, "Data do pagamento ")
+    valor_raw    = extrair_campo_linha(texto, "Valor Total ")
+
+    if not all([convenio_raw, data_raw, valor_raw]):
+        print("   [AVISO] BB Boleto/Convênio – campo(s) não encontrado(s). Arquivo não renomeado.")
+        return True
+
+    # Convênio: usa mapeamento se existir, senão mantém como veio
+    convenio_upper = convenio_raw.upper().strip()
+    convenio = CONVENIOS_BB.get(convenio_upper, convenio_raw.strip())
+
+    data  = limpar_data(data_raw)
+    valor = limpar_valor_monetario(valor_raw)
+
+    renomear_pdf(caminho, montar_nome(data, convenio, valor))
+    return True
+
+
+def handle_bb_pagamento_eletronico(texto: str, caminho: Path):
+    """
+    Cobre comprovantes SISBB do tipo:
+      COMPROVANTE DE PAGAMENTO ELETRONICO
+    Campos: FAVORECIDO / DATA DE PAGAMENTO / VALOR CREDITADO (R$)
+    """
+    if "COMPROVANTE DE PAGAMENTO ELETRONICO" not in texto.upper():
+        return False
+
+    favorecido_raw = extrair_campo_linha(texto, "FAVORECIDO:")
+    data_raw       = extrair_campo_linha(texto, "DATA DE PAGAMENTO:")
+    valor_raw      = extrair_campo_linha(texto, "VALOR CREDITADO (R$):")
+
+    if not all([favorecido_raw, data_raw, valor_raw]):
+        print("   [AVISO] BB Pagamento Eletrônico – campo(s) não encontrado(s). Arquivo não renomeado.")
+        return True
+
+    data  = limpar_data(data_raw)
+    valor = limpar_valor_monetario(valor_raw)
+
+    renomear_pdf(caminho, montar_nome(data, favorecido_raw.strip(), valor))
+    return True
+
+
+def handle_sicredi_boleto(texto: str, caminho: Path):
+    """Cobre tanto 'Boleto' quanto 'Pagar Boletos Eletronicos' (DDA)."""
+    texto_upper = texto.upper()
+    if "BOLETO" not in texto_upper and "PAGAR BOLETOS" not in texto_upper:
+        return False
+
+    beneficiario_raw = extrair_campo_linha(texto, "Razao Social do Beneficiario:")
+    if not beneficiario_raw:
+        beneficiario_raw = extrair_campo_linha(texto, "Razão Social do Beneficiário:")
+    data_raw         = extrair_campo_linha(texto, "Data da Transacao:")
+    if not data_raw:
+        data_raw = extrair_campo_linha(texto, "Data da Transação:")
+    valor_raw        = extrair_campo_linha(texto, "Valor Pago (R$):")
+
+    if not all([beneficiario_raw, data_raw, valor_raw]):
+        print("   [AVISO] Sicredi Boleto – campo(s) não encontrado(s). Arquivo não renomeado.")
+        return True
+
+    data  = limpar_data(data_raw)
+    valor = limpar_valor_monetario(valor_raw)
+
+    renomear_pdf(caminho, montar_nome(data, beneficiario_raw.strip(), valor))
+    return True
+
+
+def handle_sicredi_pix(texto: str, caminho: Path):
+    if "Comprovante de Pagamento Pix" not in texto:
+        return False
+
+    # Tenta com acento primeiro (formato real do Sicredi), depois sem
+    destinatario_raw = extrair_campo_linha(texto, "Nome do destinatário:")
+    if not destinatario_raw:
+        destinatario_raw = extrair_campo_linha(texto, "Nome do destinatario:")
+
+    data_raw  = extrair_campo_linha(texto, "Realizado em:")
+
+    # Valor: ignora linha "Venc: ..." que também começa com "V"
+    # Busca especificamente a linha que começa com "Valor: R$"
+    valor_raw = None
+    for linha in texto.splitlines():
+        l = linha.strip()
+        if l.lower().startswith("valor:"):
+            valor_raw = l[len("Valor:"):].strip()
+            break
+
+    if not all([valor_raw, data_raw, destinatario_raw]):
+        print("   [AVISO] Sicredi PIX – campo(s) não encontrado(s). Arquivo não renomeado.")
+        return True
+
+    data         = limpar_data(data_raw)
+    destinatario = limpar_nome_destinatario(destinatario_raw)
+    valor        = limpar_valor_monetario(valor_raw)
+
+    renomear_pdf(caminho, montar_nome(data, destinatario, valor))
+    return True
+
+
+def handle_sicredi_debito_automatico(texto: str, caminho: Path):
+    """
+    Cobre comprovantes Sicredi do tipo:
+      Comprovante de pagamento por débito automático
+    Campos (layout de tabela — rótulo e valor na mesma linha):
+      Empresa / Data de pagamento / Valor do débito automático
+    """
+    if "Comprovante de pagamento por débito automático" not in texto:
+        return False
+
+    empresa_raw = extrair_campo_linha(texto, "Empresa ")
+    data_raw    = extrair_campo_linha(texto, "Data de pagamento ")
+    valor_raw   = extrair_campo_linha(texto, "Valor do débito automático ")
+
+    if not all([empresa_raw, data_raw, valor_raw]):
+        print("   [AVISO] Sicredi Débito Automático – campo(s) não encontrado(s). Arquivo não renomeado.")
+        return True
+
+    data  = limpar_data(data_raw)
+    valor = limpar_valor_monetario(valor_raw)
+
+    renomear_pdf(caminho, montar_nome(data, empresa_raw.strip(), valor))
+    return True
+
+
+def handle_sicredi_folha(texto: str, caminho: Path):
+    if "Folha de Pagamento" not in texto:
+        return False
+
+    favorecido_raw = extrair_campo_linha(texto, "Favorecido:")
+    data_raw       = extrair_campo_linha(texto, "Data do Pagamento:")
+    valor_raw      = extrair_campo_linha(texto, "Valor Total (R$):")
+
+    if not all([favorecido_raw, data_raw, valor_raw]):
+        print("   [AVISO] Sicredi Folha – campo(s) não encontrado(s). Arquivo não renomeado.")
+        return True
+
+    data  = limpar_data(data_raw)
+    valor = limpar_valor_monetario(valor_raw)
+
+    renomear_pdf(caminho, montar_nome(data, favorecido_raw.strip(), valor))
+    return True
+
+
+# Mapa de bancos -> lista de handlers (ordem importa: testa um a um)
+BANCOS = {
+    "BB": [
+        handle_bb_dda,
+        handle_bb_folha,
+        handle_bb_boleto_convenio,
+        handle_bb_pagamento_eletronico,
+    ],
+    "Sicredi": [
+        handle_sicredi_pix,
+        handle_sicredi_debito_automatico,
+        handle_sicredi_boleto,
+        handle_sicredi_folha,
+    ],
+}
+
+BANCO_OPCOES = list(BANCOS.keys())
+
+
+# ---------------------------------------------------------------------------
+# Etapa 2 – Identificar tipo e renomear
+# ---------------------------------------------------------------------------
+
+def processar_renomeio(caminho: Path, banco: str):
+    texto = extrair_texto(caminho)
+    handlers = BANCOS.get(banco, [])
+
+    for handler in handlers:
+        if handler(texto, caminho):
+            return
+
+    print(f"   [AVISO] Nenhum tipo reconhecido para '{caminho.name}' no banco {banco}.")
+
+
+# ---------------------------------------------------------------------------
+# Fluxo principal
+# ---------------------------------------------------------------------------
+
+def processar_arquivo(caminho_pdf: Path, pasta_saida: Path, banco: str):
+    print(f"\n  Processando: {caminho_pdf.name}")
+    arquivos = separar_paginas(caminho_pdf, pasta_saida)
+
+    if len(arquivos) > 1:
+        for arq in arquivos:
+            processar_renomeio(arq, banco)
+    else:
+        processar_renomeio(arquivos[0], banco)
+
+
+def main():
+    print("=" * 50)
+    print("   Processador de PDFs Bancários")
+    print("=" * 50)
+
+    # Step 1 – Escolha do banco
+    print("\nBancos disponíveis:")
+    for i, banco in enumerate(BANCO_OPCOES, start=1):
+        print(f"  {i}. {banco}")
+
+    while True:
+        escolha = input("\nDigite o número do banco: ").strip()
+        if escolha.isdigit() and 1 <= int(escolha) <= len(BANCO_OPCOES):
+            banco = BANCO_OPCOES[int(escolha) - 1]
+            break
+        print("  Opção inválida. Tente novamente.")
+
+    print(f"\nBanco selecionado: {banco}")
+
+    # Entrada
+    caminho_entrada = input("\nCaminho do arquivo PDF ou pasta com PDFs: ").strip().strip('"')
+    caminho_entrada = Path(caminho_entrada)
+
+    if not caminho_entrada.exists():
+        print(f"\nErro: o caminho '{caminho_entrada}' não existe.")
+        sys.exit(1)
+
+    # Saída
+    pasta_saida_str = input(
+        "Pasta de saída para páginas separadas (ENTER = mesma pasta do arquivo): "
+    ).strip().strip('"')
+
+    if caminho_entrada.is_dir():
+        pasta_padrao = caminho_entrada
+        arquivos_pdf = sorted(caminho_entrada.glob("*.pdf"))
+    else:
+        pasta_padrao = caminho_entrada.parent
+        arquivos_pdf = [caminho_entrada]
+
+    pasta_saida = Path(pasta_saida_str) if pasta_saida_str else pasta_padrao
+    pasta_saida.mkdir(parents=True, exist_ok=True)
+
+    if not arquivos_pdf:
+        print("Nenhum arquivo .pdf encontrado.")
+        sys.exit(0)
+
+    print(f"\nProcessando {len(arquivos_pdf)} arquivo(s)...")
+
+    for pdf in arquivos_pdf:
+        try:
+            processar_arquivo(pdf, pasta_saida, banco)
+        except Exception as e:
+            print(f"  [ERRO] '{pdf.name}': {e}")
+
+    print("\nConcluído.")
+
+
+if __name__ == "__main__":
+    main()
