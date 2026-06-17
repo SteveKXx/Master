@@ -76,11 +76,8 @@ pressionar("tab")
 hotkey("ctrl", "v")   # 1º Ctrl+V
 
 # 7. Avança 5 campos com TAB + Ctrl+V novamente
-pressionar("tab")
-pressionar("tab")
-pressionar("tab")
-pressionar("tab")
-pressionar("tab")
+for _ in range(5):
+    pressionar("tab")
 hotkey("ctrl", "v")   # 2º Ctrl+V
 
 # 8. TAB + Ctrl+V mais uma vez
@@ -88,10 +85,8 @@ pressionar("tab")
 hotkey("ctrl", "v")   # 3º Ctrl+V
 
 # 9. Avança 4 campos com TAB + ENTER para confirmar
-pressionar("tab")
-pressionar("tab")
-pressionar("tab")
-pressionar("tab")
+for _ in range(4):
+    pressionar("tab")
 pressionar("enter")
 
 # 10. TAB + SPACE (marca/desmarca um checkbox ou botão de rádio)
@@ -102,13 +97,8 @@ pressionar("space")
 #     Nota: o XML mostra Shift pressionado, depois 7 TABs e Shift solto —
 #     equivale a Shift+TAB (foco anterior) e depois 6 TABs normais.
 pyautogui.keyDown("shift")
-pressionar("tab")   # Shift+TAB = volta um campo
-pressionar("tab")   # Shift+TAB = volta um campo
-pressionar("tab")   # Shift+TAB = volta um campo
-pressionar("tab")   # Shift+TAB = volta um campo
-pressionar("tab")   # Shift+TAB = volta um campo
-pressionar("tab")   # Shift+TAB = volta um campo
-pressionar("tab")   # Shift+TAB = volta um campo
+for _ in range(7):
+    pressionar("tab")   # Shift+TAB = volta um campo
 pyautogui.keyUp("shift")
 
 print("Macro concluída com sucesso!")
