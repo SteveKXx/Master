@@ -92,4 +92,7 @@ pressionar("tab")
 pressionar("tab")
 pressionar("enter")
 
+pressionar("tab")
+pressionar("space")
+
 print("Macro concluída com sucesso!")
