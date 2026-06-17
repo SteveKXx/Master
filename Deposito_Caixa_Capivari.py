@@ -28,9 +28,8 @@ print("Executando macro DEPOSITO_CAIXA_CAPIVARI...")
 
 digitar("DEPOSITO CAIXA CAPIVARI")
 pressionar("tab")
-pressionar("down")
-pressionar("down")
-pressionar("down")
+for _ in range(3):
+    pressionar("down")
 pressionar("enter")
 
 pressionar("tab")
@@ -42,33 +41,23 @@ pressionar("enter")
 pressionar("tab")
 hotkey("ctrl", "v")
 
-pressionar("tab")
-pressionar("tab")
-pressionar("tab")
-pressionar("tab")
-pressionar("tab")
+for _ in range(5):
+    pressionar("tab")
 hotkey("ctrl", "v")
 
 pressionar("tab")
 hotkey("ctrl", "v")
 
-pressionar("tab")
-pressionar("tab")
-pressionar("tab")
-pressionar("tab")
+for _ in range(4):
+    pressionar("tab")
 pressionar("enter")
 
 pressionar("tab")
 pressionar("space")
 
 pyautogui.keyDown("shift")
-pressionar("tab")
-pressionar("tab")
-pressionar("tab")
-pressionar("tab")
-pressionar("tab")
-pressionar("tab")
-pressionar("tab")
+for _ in range(7):
+    pressionar("tab")
 pyautogui.keyUp("shift")
 
 print("Macro concluída com sucesso!")
