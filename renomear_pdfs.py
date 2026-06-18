@@ -333,6 +333,30 @@ def handle_sicredi_debito_automatico(texto: str, caminho: Path):
     return True
 
 
+def handle_sicredi_contas_consumo(texto: str, caminho: Path):
+    """
+    Cobre comprovantes Sicredi do tipo:
+      Contas de Consumo  (água, luz, saneamento, etc.)
+    Campos: Nome da Empresa / Data do Pagamento / Valor Total (R$)
+    """
+    if "Contas de Consumo" not in texto:
+        return False
+
+    empresa_raw = extrair_campo_linha(texto, "Nome da Empresa:")
+    data_raw    = extrair_campo_linha(texto, "Data do Pagamento:")
+    valor_raw   = extrair_campo_linha(texto, "Valor Total (R$):")
+
+    if not all([empresa_raw, data_raw, valor_raw]):
+        print("   [AVISO] Sicredi Contas de Consumo – campo(s) não encontrado(s). Arquivo não renomeado.")
+        return True
+
+    data  = limpar_data(data_raw)
+    valor = limpar_valor_monetario(valor_raw)
+
+    renomear_pdf(caminho, montar_nome(data, empresa_raw.strip(), valor))
+    return True
+
+
 def handle_sicredi_folha(texto: str, caminho: Path):
     if "Folha de Pagamento" not in texto:
         return False
@@ -363,6 +387,7 @@ BANCOS = {
     "Sicredi": [
         handle_sicredi_pix,
         handle_sicredi_debito_automatico,
+        handle_sicredi_contas_consumo,
         handle_sicredi_boleto,
         handle_sicredi_folha,
     ],
