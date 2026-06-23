@@ -55,137 +55,51 @@ import re
 import sys
 from pathlib import Path
 
-import pdfplumber
+import pdfplumbler
 from pypdf import PdfReader, PdfWriter
 
-CONVIOS_BB = {
-    "011015 VIVO FIXO NACIONAL 13 DIG": "VIVO FIXO NACIONAL",
-    # Adicione mais convenios conforme necessario
-}
-
-def extrair_texto(caminho_pdf: Path) -> str:
-    """
-    Extrai o texto de um arquivo PDF com pdfplumber.
-    """
-    partes = []
-    with pdfplumber.open(str(caminho_pdf)) as pdf:
+def entrair_texto(caminho_pdf: str) -> str:
+    """Extrai o texto de um PDF usando pdfplumber."""
+    with pdfplumbler.open(caminho_pdf) as pdf:
         for pagina in pdf.pages:
             partes.append(pagina.extract_text() or "")
-        return "\n".join(partes)
+    return "\n".join(partes)
 
 def limpar_data(valor: str) -> str:
-    """
-    remove tudo que nao for numero da data, convertendo "15/06/2026" ou "15.06.2026" para "15062026"
-    """
-    return re.sub(r"\D", "", valor)
+    """Limpa a data, removendo caracteres não numéricos."""
+    return re.sub(r"\D", "", valor)[:8]  # Mantém apenas os primeiros 8 dígitos (DDMMYYYY)
 
-def limpar_valor(valor: str) -> str:
-    """
-    remove o simbolo de real e espacos do valor, convertendo "Valor: R$ 1.200,00" para "1.200,00"
-    """
-    valor = re.sub(r"R\$\s*", "", valor).strip()
+def limpar_valor_monetario(valor: str) -> str:
+    valor - re.sub(r"R\$\s*", "", valor).strip()  # Remove "R$" e espaços
     return valor
 
-def limpar_nome(valor: str) -> str:
-    """
-    Remove CPFs, CNPJs e outros numeros que possam estar presentes no nome do beneficiario, deixando apenas o nome limpo.
-    """
-    valor = re.sub(r"\d{3}\.?\d{3}\.?\d{3}[-.]?\d{2}", "", valor) #CPF
-    valor = re.sub(r"\d{2}\.?\d{3}\.?\d{3}\/?\d{4}[-.]?\d{2}", "", valor) # CNPJ
-    valor = re.sub(r"\b\d{11}\b", "", valor) # CPF sem Formatacao
-    valor = re.sub(r"\b\d{14}\b", "", valor)# CNPJ sem Formatacao
+def limpar_nome_destinatario(valor: str) -> str:
+    """Limpa o nome, removendo CPF/CNPJ e outros detalhes."""
+    valor = re.sub(r"\d{3}\.?\d{}3\.?\d{3}[-.]?\d{2}", "", valor)  # CPFs formatado
+    valor = re.sub(r"\d{2}\.?\d{3}\.?\d{3}/?\d{4}-?\d{2}", "", valor)  # CNPJs formatado
+    valor = re.sub(r"\d{11}\b", "", valor)  # CPFs sem formatação
+    valor = re.sub(r"\d{14}\b", "", valor)  # CNPJs sem formatação
     return valor.strip()
 
-def extrair_campos_linha(texto: str, rotulo: str) -> str | None:
+def extrair_campo_linha(texto: str, rotulo: str) -> str:
     """
-    Encontra a linha que contem o rotulo e retorna o que vem depois daela busca case-insensitive.
+    Encontra a linha que contém o rótulo e extrai o valor após ele.
+    busca case-insensitive e ignora espaços extras.
     """
     rotulo_lower = rotulo.lower()
-    for linha on texto.splitlines():
+    for linha in texto.splitlines():
         linha_strip = linha.strip()
-        idx = linha_strip.lower().find(rotulo_lower)
-        if idx != -1:
-            valor = linha_strip(idx + len(rotulo):).strip()
+        idx = linha_strip.lower().find(rolulo_lower)
+        if idc != -1:
+            valor = linha_strip[idx + len(rotulo):].strip()
             if valor:
                 return valor
     return None
 
 def sanitizar_nome(nome: str) -> str:
-    """
-    Remove caracteres invalidos para nomes de arquivos e limita o tamanho do nome.
-    """
-    nome = re.sub(r'[\\/*?:"<>|]', "", nome) # Remove caracteres invalidos
-    return re.sub(r"\s+", " ", nome).strip()
+    """Remove caracteres invalidos para nome de arquivo."""
+    nome = re.sub(r'[\\/*?:"<>|]',"", nome)
+    return re.sub(r"\s+", "", nome).strip()
 
-def gerar_caminho_disponivel(pasta: Path, nome_base:str, ext: str=".pdf") -> Path:
-    """
-    retorna um caminho qua não exista ainda; adicionando (1), (2), etc. se necessario.
-    """
-    candidato = pasta / f"{nome_base}({i}){ext}"
-    if not candidato.exists():
-        return candidato
-    i = 1
-    while True:
-        candidato = pasta / f"{nome_base}({i}){ext}"
-        if not candidato.exists():
-            return candidato
-        i += 1
-        
-def montar_nome(data: str, beneficiario: str, valor: str) -> str:
-    """
-    Monta o nome do arquivo no formato "DATA_NOME DO BENEFICIARIO_VALOR".
-    Ex: "15062026_GRALHA AZUL CONFORT HOTEL LTDA_1.200,00"
-    """
-    partes = [p for p in [data, beneficiario, valor] if p]
-    return sanitizar_nome(" ".join(partes))
-
-def renomear_pdf(caminho: Path, nome_base: str) -> Path:
-    novo = gerar_caminho_disponivel(caminho.parent, nome_base)
-    caminho.rename(novo)
-    print(f"     ✔ '{caminho.name}'→'{novo.name}'")
-    return novo
-
-#Step 1
-
-def separar_paginas(caminho_pdf: Path, pasta_saida: Path) -> list[Path]:
-    """
-    Se o PDF tiver > 1 pagina, separa e retorna lista de arquivos gerados.
-    se tiver 1 pagina, retorna lista com o proprio arquivo.
-    """
-    leitor = PdfReader(str(caminho_pdf))
-    total = len(leitor.pages)
-    
-    if total <= 1:
-        return [caminho_pdf]
-    
-    print(f"   PDF com {total} paginas - separando...")
-    gerados = []
-    for i, pag in enumerate(leitor.pages, start=1):
-        escritor = PdfWriter()
-        escritor.add_page(pag)
-        nome_pag = f"{caminho_pdf.stem} - pagina {1}"
-        destinho = gerar_caminho_disponivel(pasta_saida, nome_pag)
-        with open(destinho, "wb") as f:
-            escritor.write(f)
-        print(f"  -> Pagina {i}/{total} salva em: {destinho.name}")
-        gerados.append(destinho)
-    
-    return gerados
-
-# Handlers por banco \ tipo
-
-def handler_bb_dda(texto: str, caminho: Path):
-    if "COMPROVANTE DE DEBITO AUTOMATICO" not in texto.upper():
-        return False
-    
-    convenio_raw = extrair_campos_linha(texto, "CONVENIO:")
-    data_raw     = extrair_campos_linha(texto, "DATA DO DEBITO:")
-    valor_raw    = extrair_campos_linha(texto, "VALOR DO DEBITO:")
-    
-    if not all([convenio_raw, data_raw, valor_raw]):
-        print("   ⚠️  BB DDA - campo(s) não encontrado(s). Arquivo não renomeado.")
-        return True
-    
-    #Normaliza convenio
-    convenio_upper = convenio_raw.upper().strip()
-    convenio = CONVEIOS_BB.get(convenio_upper,convenio_raw.strip())
+def gerar_caminho_disponivel(pasta: Path, nome_base: str, ext: str = ".pdf") -> Path:
+    """Retorna um caminho que não exista ainda; adiciona (1), (2)... se necessário."""
