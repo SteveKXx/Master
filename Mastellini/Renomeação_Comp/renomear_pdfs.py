@@ -260,9 +260,9 @@ def handle_sicredi_boleto(texto: str, caminho: Path):
     beneficiario_raw = extrair_campo_linha(texto, "Razao Social do Beneficiario:")
     if not beneficiario_raw:
         beneficiario_raw = extrair_campo_linha(texto, "Razão Social do Beneficiário:")
-    data_raw         = extrair_campo_linha(texto, "Data da Transacao:")
+    data_raw         = extrair_campo_linha(texto, "Data do Pagamento:")
     if not data_raw:
-        data_raw = extrair_campo_linha(texto, "Data da Transação:")
+        data_raw = extrair_campo_linha(texto, "Data do Pagamento:")
     valor_raw        = extrair_campo_linha(texto, "Valor Pago (R$):")
 
     if not all([beneficiario_raw, data_raw, valor_raw]):
