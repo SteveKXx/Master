@@ -26,7 +26,8 @@ CNPJ_CIDADES = {
     "11.082.876/0018-99": "BIRIGUI I",
     "11.082.876/0020-03": "BIRIGUI II",
     "11.082.876/0022-75": "CUBATAO",
-    "11.082.876/0024-37": "TAUBATE",
+    "11.082.876/0024-37": "TAUBATE I",
+    "11.082.876/0026-07": "TAUBATE II"
 }
 
 TEXTO_DESTINATARIO_ALVO = "CONSELHO REGIONAL DE BIOMEDICINA"
@@ -45,15 +46,19 @@ def extrair_texto_completo(caminho_pdf):
 
 def destinatario_valido(texto):
     """
-    Verifica se o beneficiario do documento e o CRBM. Tenta primeiro
-    'Nome Fantasia do Beneficiário:'; se esse campo nao existir no PDF,
-    tenta 'Razão Social do Beneficiário:' como alternativa.
+    Verifica se o beneficiario/destinatario do documento e o CRBM.
+    Tenta varios campos possiveis, dependendo do layout do comprovante
+    (boleto ou Pix), na seguinte ordem:
+      1. Nome Fantasia do Beneficiário:
+      2. Razão Social do Beneficiário:
+      3. Nome do destinatário:
     (checa numa janela de caracteres para evitar falso positivo vindo
     de outro trecho do texto)
     """
     campos_para_checar = [
         "Nome Fantasia do Beneficiário:",
         "Razão Social do Beneficiário:",
+        "Nome do destinatário:",
     ]
 
     for campo in campos_para_checar:
