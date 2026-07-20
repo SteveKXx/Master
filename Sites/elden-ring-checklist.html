@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Lands Between — Checklist</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Cinzel+Decorative:wght@700&family=EB+Garamond:ital,wght@0,400;0,600;1,400&display=swap');
+
+:root{
+  --bg:#100d09;
+  --panel:#1a1610;
+  --panel2:#211b13;
+  --gold:#c9a227;
+  --gold-bright:#e9c766;
+  --crimson:#8a2a34;
+  --text:#e9e0c8;
+  --text-dim:#a89a7a;
+  --border:rgba(201,162,39,0.28);
+  --border-soft:rgba(201,162,39,0.14);
+}
+*{box-sizing:border-box;}
+body{
+  margin:0;
+  background:
+    radial-gradient(ellipse at 50% -10%, rgba(201,162,39,0.08), transparent 55%),
+    var(--bg);
+  color:var(--text);
+  font-family:'EB Garamond', serif;
+  font-size:17px;
+  line-height:1.5;
+  min-height:100vh;
+}
+.wrap{max-width:1100px;margin:0 auto;padding:32px 20px 80px;}
+
+/* HERO */
+.hero{
+  display:flex;
+  align-items:center;
+  gap:32px;
+  padding:28px 32px;
+  border:1px solid var(--border);
+  background:linear-gradient(180deg, var(--panel), var(--panel2));
+  position:relative;
+  margin-bottom:36px;
+}
+.hero::before, .hero::after{
+  content:"";
+  position:absolute;
+  left:10px;right:10px;
+  height:1px;
+  background:var(--border-soft);
+}
+.hero::before{top:6px;}
+.hero::after{bottom:6px;}
+.hero-text h1{
+  font-family:'Cinzel Decorative', serif;
+  font-size:28px;
+  color:var(--gold-bright);
+  margin:0 0 6px;
+  letter-spacing:1px;
+  text-shadow:0 0 18px rgba(201,162,39,0.25);
+}
+.hero-text p{
+  margin:0;
+  color:var(--text-dim);
+  font-style:italic;
+  font-size:15px;
+}
+.ring-wrap{flex-shrink:0;position:relative;width:118px;height:118px;}
+.ring-wrap svg{transform:rotate(-90deg);}
+.ring-bg{fill:none;stroke:rgba(201,162,39,0.14);stroke-width:6;}
+.ring-fg{fill:none;stroke:var(--gold);stroke-width:6;stroke-linecap:round;transition:stroke-dashoffset .6s ease;}
+.ring-label{
+  position:absolute;inset:0;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+}
+.ring-label .pct{font-family:'Cinzel',serif;font-size:22px;color:var(--gold-bright);font-weight:700;}
+.ring-label .sub{font-size:11px;color:var(--text-dim);letter-spacing:1px;text-transform:uppercase;}
+
+/* NAV */
+.nav{
+  display:flex;
+  gap:6px;
+  flex-wrap:wrap;
+  margin-bottom:28px;
+  border-bottom:1px solid var(--border-soft);
+  padding-bottom:14px;
+}
+.nav button{
+  font-family:'Cinzel', serif;
+  font-size:12.5px;
+  letter-spacing:0.5px;
+  background:transparent;
+  border:1px solid var(--border-soft);
+  color:var(--text-dim);
+  padding:9px 16px;
+  cursor:pointer;
+  transition:all .2s ease;
+}
+.nav button:hover{border-color:var(--border);color:var(--text);}
+.nav button.active{
+  background:rgba(201,162,39,0.12);
+  border-color:var(--gold);
+  color:var(--gold-bright);
+}
+.nav button .count{color:var(--text-dim);font-family:'EB Garamond',serif;font-style:italic;margin-left:4px;}
+
+/* SECTION */
+.section-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  margin-bottom:6px;
+}
+.section-head h2{
+  font-family:'Cinzel', serif;
+  font-size:19px;
+  color:var(--gold-bright);
+  margin:0;
+  letter-spacing:0.5px;
+}
+.section-head .stat{font-size:14px;color:var(--text-dim);font-style:italic;}
+.section-desc{color:var(--text-dim);font-size:14px;font-style:italic;margin:0 0 20px;}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill, minmax(260px,1fr));
+  gap:10px;
+  margin-bottom:22px;
+}
+.item{
+  display:flex;
+  align-items:flex-start;
+  gap:12px;
+  padding:12px 14px;
+  background:var(--panel);
+  border:1px solid var(--border-soft);
+  cursor:pointer;
+  transition:border-color .2s ease, background .2s ease;
+}
+.item:hover{border-color:var(--border);}
+.item.checked{
+  border-color:rgba(201,162,39,0.45);
+  background:linear-gradient(180deg, rgba(201,162,39,0.08), var(--panel));
+}
+.seal{
+  flex-shrink:0;
+  width:22px;height:22px;
+  border:1.5px solid var(--gold);
+  border-radius:50%;
+  position:relative;
+  margin-top:2px;
+}
+.item.checked .seal{background:var(--gold);}
+.item.checked .seal::after{
+  content:"";
+  position:absolute;
+  left:6px;top:2px;
+  width:5px;height:10px;
+  border:solid var(--bg);
+  border-width:0 2px 2px 0;
+  transform:rotate(45deg);
+}
+.item-text{flex:1;}
+.item-text .name{
+  font-weight:600;
+  color:var(--text);
+  text-decoration:none;
+}
+.item.checked .item-text .name{color:var(--text-dim);text-decoration:line-through;}
+.item-text .note{display:block;font-size:12.5px;color:var(--text-dim);font-style:italic;margin-top:2px;}
+.rm-btn{
+  flex-shrink:0;
+  background:none;border:none;
+  color:var(--text-dim);
+  font-size:16px;
+  cursor:pointer;
+  opacity:0;
+  transition:opacity .15s ease;
+  line-height:1;
+  padding:2px 4px;
+}
+.item:hover .rm-btn{opacity:0.6;}
+.rm-btn:hover{opacity:1 !important;color:var(--crimson);}
+
+.add-row{
+  display:flex;
+  gap:8px;
+  margin-bottom:44px;
+}
+.add-row input{
+  flex:1;
+  background:var(--panel);
+  border:1px solid var(--border-soft);
+  color:var(--text);
+  font-family:'EB Garamond', serif;
+  font-size:15px;
+  padding:9px 12px;
+}
+.add-row input:focus{outline:none;border-color:var(--gold);}
+.add-row input::placeholder{color:var(--text-dim);}
+.add-row button{
+  font-family:'Cinzel', serif;
+  font-size:12.5px;
+  background:rgba(201,162,39,0.1);
+  border:1px solid var(--border);
+  color:var(--gold-bright);
+  padding:0 18px;
+  cursor:pointer;
+  letter-spacing:0.5px;
+}
+.add-row button:hover{background:rgba(201,162,39,0.18);}
+
+footer{
+  text-align:center;
+  color:var(--text-dim);
+  font-size:13px;
+  font-style:italic;
+  margin-top:30px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:18px;
+}
+footer button{
+  background:none;
+  border:1px solid var(--border-soft);
+  color:var(--text-dim);
+  font-family:'EB Garamond', serif;
+  font-style:italic;
+  font-size:13px;
+  padding:6px 14px;
+  cursor:pointer;
+}
+footer button:hover{color:var(--crimson);border-color:var(--crimson);}
+
+@media(max-width:640px){
+  .hero{flex-direction:column;text-align:center;padding:24px 18px;}
+  .nav{gap:4px;}
+  .nav button{padding:7px 11px;font-size:11px;}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="hero">
+    <div class="ring-wrap">
+      <svg width="118" height="118" viewBox="0 0 118 118">
+        <circle class="ring-bg" cx="59" cy="59" r="50"></circle>
+        <circle class="ring-fg" id="ringFg" cx="59" cy="59" r="50" stroke-dasharray="314" stroke-dashoffset="314"></circle>
+      </svg>
+      <div class="ring-label">
+        <span class="pct" id="pctLabel">0%</span>
+        <span class="sub" id="countLabel">0/0</span>
+      </div>
+    </div>
+    <div class="hero-text">
+      <h1>Checklist das Terras Intermédias</h1>
+      <p>Runas, rememoranças, feitiços e mais — acompanhe sua jornada até se tornar Lorde Prístino. Seu progresso é salvo automaticamente.</p>
+    </div>
+  </div>
+
+  <nav class="nav" id="nav"></nav>
+
+  <div id="content"></div>
+
+  <footer>
+    <span>Que a graça te guie, Sem-Enxertado.</span>
+    <button id="resetBtn">Reiniciar progresso</button>
+  </footer>
+
+</div>
+
+<script>
+const CATEGORIES = [
+  {
+    id:'runes', name:'Grandes Runas', desc:'As runas roubadas dos semideuses, necessárias para reparar o Anel de Elden.',
+    items:[
+      'Grande Runa de Godrick',
+      'Grande Runa da Deserdada (Rennala)',
+      'Grande Runa de Radahn',
+      'Grande Runa de Morgott',
+      'Grande Runa de Rykard',
+      'Grande Runa de Malenia',
+    ]
+  },
+  {
+    id:'remembrances', name:'Rememorações', desc:'Trocadas com o Finger Reader Enia por armas ou talismãs lendários dos chefes principais.',
+    items:[
+      'Rememoração do Rei Enxertado (Godrick)',
+      'Rememoração da Rainha da Lua Cheia (Rennala)',
+      'Rememoração da Lâmina Blasfema (Rykard)',
+      'Rememoração do Punho de Ferro (Radahn)',
+      'Rememoração do Rei dos Omens (Morgott)',
+      'Rememoração do Espírito Ancestral Régio',
+      'Rememoração do Senhor-Dragão Placidusax',
+      'Rememoração do Gigante de Fogo',
+      'Rememoração da Lâmina Negra (Maliketh)',
+      'Rememoração da Lichdragon Fortissax',
+      'Rememoração do Senhor do Sangue (Mohg)',
+      'Rememoração do Duo Amaldiçoado (Dupla Pele-de-Deus)',
+      'Rememoração da Nobre Pele-de-Deus',
+      'Rememoração da Aberração Astel',
+      'Rememoração de Malenia, Lâmina de Miquella',
+      'Rememoração de Radagon / Besta Elden',
+    ]
+  },
+  {
+    id:'dlc', name:'Sombra da Árvore Erdtree (DLC)', desc:'Marcos principais da expansão Shadow of the Erdtree.',
+    items:[
+      'Derrotar Messmer, o Empalador',
+      'Derrotar Rellana, Cavaleira da Lua Gêmea',
+      'Derrotar Metyr, Mãe dos Dedos',
+      'Derrotar Bayle, o Temido',
+      'Derrotar Radahn, o Consorte Prometido',
+      'Explorar Terra das Sombras por completo',
+    ]
+  },
+  {
+    id:'talismans', name:'Talismãs Notáveis', desc:'Talismãs raros e poderosos encontrados pelo mundo.',
+    items:[
+      'Selo Espinhoso de Radagon',
+      'Talismã da Tartaruga de Duas Cabeças',
+      'Escaravelho Prateado',
+      'Talismã da Espada Curva',
+      'Prótese de Millicent',
+      'Talismã do Escudo Dragoncrest +2',
+      'Herança do Portador da Prótese',
+      'Talismã da Espada Ritual',
+      'Fragmento de Alexander',
+      'Arsenal do Grande Jarro',
+    ]
+  },
+  {
+    id:'spells', name:'Feitiços Raros', desc:'Feitiçarias e incantações poderosas ou emblemáticas.',
+    items:[
+      'Cometa Azur (Feitiçaria)',
+      'Lua Cheia de Rennala (Feitiçaria)',
+      'Lua Negra de Ranni (Feitiçaria)',
+      'Meteoro de Astel (Feitiçaria)',
+      'Chuva Fundadora de Estrelas (Feitiçaria)',
+      'Lâmina Lunar de Adula (Feitiçaria)',
+      'Estrelas da Ruína (Feitiçaria)',
+      'Estrelas Élden (Incantação)',
+      'Ruína de Placidusax (Incantação)',
+      'Rancor de Rykard (Incantação)',
+      'Fundamentalismo da Ordem Dourada (Incantação)',
+      'Chama do Deus Caído (Incantação)',
+      'Chama Enlouquecida (Incantação)',
+      'Garras de Chama Sanguínea (Incantação)',
+    ]
+  },
+  {
+    id:'whetblades', name:'Lâminas de Amolar', desc:'Desbloqueiam afinidades de armas nos ferreiros de campo.',
+    items:[
+      'Lâmina Sagrada',
+      'Lâmina Sombria',
+      'Lâmina de Enlouquecimento',
+      'Lâmina de Sangue',
+      'Lâmina de Frio',
+      'Lâmina de Fogo',
+      'Lâmina de Raio',
+      'Lâmina da Morte',
+      'Lâmina Ocultista',
+      'Lâmina Sublime (Somber)',
+    ]
+  },
+  {
+    id:'teardrops', name:'Lágrimas Cristalinas', desc:'Ingredientes de frasco notáveis do Frasco de Físico Cruzado.',
+    items:[
+      'Lágrima Dourada dos Deuses de Ouro',
+      'Lágrima Cerúlea Curativa',
+      'Lágrima Carmesim Curativa',
+      'Lágrima da Fera Sagrada',
+      'Lágrima do Fluxo de Sangue Espesso',
+      'Lágrima da Aparição Flamejante',
+      'Lágrima da Opala Ardente',
+      'Lágrima da Opala de Vento Gélido',
+      'Lágrima Verdinegra',
+      'Lágrima da Chama Negra',
+    ]
+  },
+  {
+    id:'endings', name:'Finais', desc:'Os diferentes destinos das Terras Intermédias.',
+    items:[
+      'Era do Fragmentário (final padrão)',
+      'Senhor da Chama Enlouquecida',
+      'Era da Ordem Dourada (Máscara Dourada)',
+      'Era das Estrelas (Ranni)',
+      'Era do Amanhecer Sombrio (Comedor de Esterco)',
+    ]
+  },
+  {
+    id:'milestones', name:'Marcos & Conquistas', desc:'Progressão geral pelo mundo e itens-chave do jogo.',
+    items:[
+      'Alcançar o Platô de Altus',
+      'Alcançar Caelid',
+      'Alcançar Leyndell, Capital Real',
+      'Alcançar o Cume dos Gigantes',
+      'Alcançar Farum Azula em Ruínas',
+      'Alcançar a Capital das Cinzas',
+      'Ativar todas as Torres Divinas',
+      'Obter um Arco de Runa',
+      'Recrutar um NPC para a Roundtable Hold',
+      'Completar uma linha de missão de NPC por inteiro',
+      'Derrotar um chefe usando apenas cinzas espirituais',
+      'Alcançar o nível de personagem 150',
+    ]
+  },
+];
+
+const STATE_KEY = 'checked-items';
+const CUSTOM_KEY = 'custom-items';
+let checked = {};
+let custom = {};
+let activeCat = CATEGORIES[0].id;
+
+function allItemsFor(cat){
+  const built = cat.items.map((name,i)=>({id:cat.id+'-'+i, name, custom:false}));
+  const extra = (custom[cat.id]||[]).map(it=>({id:it.id, name:it.name, custom:true}));
+  return built.concat(extra);
+}
+
+function totalCounts(){
+  let total=0, done=0;
+  CATEGORIES.forEach(cat=>{
+    allItemsFor(cat).forEach(it=>{
+      total++;
+      if(checked[it.id]) done++;
+    });
+  });
+  return {total, done};
+}
+
+function renderNav(){
+  const nav = document.getElementById('nav');
+  nav.innerHTML = '';
+  CATEGORIES.forEach(cat=>{
+    const items = allItemsFor(cat);
+    const done = items.filter(it=>checked[it.id]).length;
+    const btn = document.createElement('button');
+    btn.className = cat.id===activeCat ? 'active':'';
+    btn.innerHTML = cat.name + ' <span class="count">'+done+'/'+items.length+'</span>';
+    btn.onclick = ()=>{ activeCat=cat.id; render(); };
+    nav.appendChild(btn);
+  });
+}
+
+function renderRing(){
+  const {total, done} = totalCounts();
+  const pct = total ? Math.round((done/total)*100) : 0;
+  const circumference = 314;
+  const offset = circumference - (pct/100)*circumference;
+  document.getElementById('ringFg').style.strokeDashoffset = offset;
+  document.getElementById('pctLabel').textContent = pct+'%';
+  document.getElementById('countLabel').textContent = done+'/'+total;
+}
+
+function renderContent(){
+  const cat = CATEGORIES.find(c=>c.id===activeCat);
+  const items = allItemsFor(cat);
+  const done = items.filter(it=>checked[it.id]).length;
+  const content = document.getElementById('content');
+
+  const grid = items.map(it=>{
+    const isChecked = !!checked[it.id];
+    return '<div class="item '+(isChecked?'checked':'')+'" data-id="'+it.id+'">'
+      +'<div class="seal"></div>'
+      +'<div class="item-text"><span class="name">'+escapeHtml(it.name)+'</span></div>'
+      +(it.custom ? '<button class="rm-btn" data-remove="'+it.id+'" title="Remover">✕</button>' : '')
+    +'</div>';
+  }).join('');
+
+  content.innerHTML =
+    '<div class="section-head"><h2>'+cat.name+'</h2><span class="stat">'+done+' / '+items.length+' concluídos</span></div>'
+    +'<p class="section-desc">'+cat.desc+'</p>'
+    +'<div class="grid">'+grid+'</div>'
+    +'<div class="add-row"><input type="text" id="addInput" placeholder="Adicionar item personalizado a esta categoria..."/><button id="addBtn">Adicionar</button></div>';
+
+  content.querySelectorAll('.item').forEach(el=>{
+    el.addEventListener('click', (e)=>{
+      if(e.target.closest('.rm-btn')) return;
+      const id = el.getAttribute('data-id');
+      toggleItem(id);
+    });
+  });
+  content.querySelectorAll('[data-remove]').forEach(el=>{
+    el.addEventListener('click', (e)=>{
+      e.stopPropagation();
+      removeCustomItem(el.getAttribute('data-remove'));
+    });
+  });
+  document.getElementById('addBtn').addEventListener('click', addCustomItem);
+  document.getElementById('addInput').addEventListener('keydown', (e)=>{
+    if(e.key==='Enter') addCustomItem();
+  });
+}
+
+function escapeHtml(s){
+  const d = document.createElement('div');
+  d.textContent = s;
+  return d.innerHTML;
+}
+
+async function toggleItem(id){
+  checked[id] = !checked[id];
+  render();
+  try{ await window.storage.set(STATE_KEY, JSON.stringify(checked)); }catch(e){ console.error('Erro ao salvar', e); }
+}
+
+async function addCustomItem(){
+  const input = document.getElementById('addInput');
+  const val = input.value.trim();
+  if(!val) return;
+  const id = 'custom-'+activeCat+'-'+Date.now();
+  if(!custom[activeCat]) custom[activeCat] = [];
+  custom[activeCat].push({id, name: val});
+  input.value = '';
+  render();
+  try{ await window.storage.set(CUSTOM_KEY, JSON.stringify(custom)); }catch(e){ console.error('Erro ao salvar', e); }
+}
+
+async function removeCustomItem(id){
+  const cat = CATEGORIES.find(c=>c.id===activeCat);
+  custom[activeCat] = (custom[activeCat]||[]).filter(it=>it.id!==id);
+  delete checked[id];
+  render();
+  try{
+    await window.storage.set(CUSTOM_KEY, JSON.stringify(custom));
+    await window.storage.set(STATE_KEY, JSON.stringify(checked));
+  }catch(e){ console.error('Erro ao salvar', e); }
+}
+
+function render(){
+  renderNav();
+  renderContent();
+  renderRing();
+}
+
+async function loadState(){
+  try{
+    const s = await window.storage.get(STATE_KEY);
+    if(s && s.value) checked = JSON.parse(s.value);
+  }catch(e){ /* nenhum estado salvo ainda */ }
+  try{
+    const c = await window.storage.get(CUSTOM_KEY);
+    if(c && c.value) custom = JSON.parse(c.value);
+  }catch(e){ /* nenhum item personalizado ainda */ }
+  render();
+}
+
+document.getElementById('resetBtn').addEventListener('click', async ()=>{
+  if(!confirm('Isso vai apagar todo o seu progresso marcado (itens personalizados serão mantidos). Continuar?')) return;
+  checked = {};
+  render();
+  try{ await window.storage.set(STATE_KEY, JSON.stringify(checked)); }catch(e){ console.error(e); }
+});
+
+loadState();
+</script>
+</body>
+</html>
