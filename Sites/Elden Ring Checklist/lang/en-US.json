@@ -9,145 +9,13 @@
     "addPlaceholder": "Add a custom item to this category...",
     "addBtn": "Add",
     "completedLabel": "completed",
-    "removeTitle": "Remove"
+    "removeTitle": "Remove",
+    "emptyNote": "Pending category — under construction. Will be filled in soon with the full official list."
   },
   "categories": [
     {
-      "id": "runes",
-      "name": "Great Runes",
-      "desc": "The runes stolen from the demigods, needed to repair the Elden Ring.",
-      "items": [
-        "Godrick's Great Rune",
-        "Rennala's Great Rune",
-        "Radahn's Great Rune",
-        "Morgott's Great Rune",
-        "Rykard's Great Rune",
-        "Malenia's Great Rune"
-      ]
-    },
-    {
-      "id": "remembrances",
-      "name": "Remembrances",
-      "desc": "Traded with Finger Reader Enia for legendary weapons or talismans from major bosses.",
-      "items": [
-        "Remembrance of the Grafted King (Godrick)",
-        "Remembrance of the Full Moon Queen (Rennala)",
-        "Remembrance of the Blasphemous (Rykard)",
-        "Remembrance of the Starscourge (Radahn)",
-        "Remembrance of the Omen King (Morgott)",
-        "Remembrance of the Regal Ancestor Spirit",
-        "Remembrance of the Dragonlord Placidusax",
-        "Remembrance of the Fire Giant",
-        "Remembrance of the Black Blade (Maliketh)",
-        "Remembrance of the Lichdragon Fortissax",
-        "Remembrance of the Blood Lord (Mohg)",
-        "Remembrance of the Cursed (Godskin Duo)",
-        "Remembrance of the Naturalborn (Godskin Noble)",
-        "Remembrance of the Terror (Astel)",
-        "Remembrance of Malenia, Blade of Miquella",
-        "Remembrance of the Elden Beast"
-      ]
-    },
-    {
-      "id": "dlc",
-      "name": "Shadow of the Erdtree (DLC)",
-      "desc": "Main milestones from the Shadow of the Erdtree expansion.",
-      "items": [
-        "Defeat Messmer, the Impaler",
-        "Defeat Rellana, Twin Moon Knight",
-        "Defeat Metyr, Mother of Fingers",
-        "Defeat Bayle, the Dread",
-        "Defeat Radahn, Promised Consort",
-        "Fully explore the Land of Shadow"
-      ]
-    },
-    {
-      "id": "talismans",
-      "name": "Notable Talismans",
-      "desc": "Rare and powerful talismans found throughout the world.",
-      "items": [
-        "Radagon's Soreseal",
-        "Two-Headed Turtle Talisman",
-        "Silver Scarab",
-        "Curved Sword Talisman",
-        "Millicent's Prosthesis",
-        "Dragoncrest Greatshield Talisman +2",
-        "Prosthesis-Wearer Heirloom",
-        "Ritual Sword Talisman",
-        "Shard of Alexander",
-        "Great-Jar's Arsenal"
-      ]
-    },
-    {
-      "id": "spells",
-      "name": "Rare Spells",
-      "desc": "Powerful or iconic sorceries and incantations.",
-      "items": [
-        "Comet Azur (Sorcery)",
-        "Rennala's Full Moon (Sorcery)",
-        "Ranni's Dark Moon (Sorcery)",
-        "Meteorite of Astel (Sorcery)",
-        "Founding Rain of Stars (Sorcery)",
-        "Adula's Moonblade (Sorcery)",
-        "Stars of Ruin (Sorcery)",
-        "Elden Stars (Incantation)",
-        "Placidusax's Ruin (Incantation)",
-        "Rykard's Rancor (Incantation)",
-        "Golden Order Fundamentalism (Incantation)",
-        "Flame of the Fell God (Incantation)",
-        "Frenzied Flame (Incantation)",
-        "Bloodflame Talons (Incantation)"
-      ]
-    },
-    {
-      "id": "whetblades",
-      "name": "Whetblades",
-      "desc": "Unlock weapon affinities at field blacksmiths.",
-      "items": [
-        "Sacred Whetblade",
-        "Shadow Whetblade",
-        "Madness Whetblade",
-        "Blood Whetblade",
-        "Cold Whetblade",
-        "Fire Whetblade",
-        "Lightning Whetblade",
-        "Death Whetblade",
-        "Occult Whetblade",
-        "Somber Whetblade"
-      ]
-    },
-    {
-      "id": "teardrops",
-      "name": "Crystal Tears",
-      "desc": "Notable Flask of Wondrous Physick ingredients.",
-      "items": [
-        "Golden Tear of the Golden Gods",
-        "Cerulean Hidden Tear",
-        "Crimson Hidden Tear",
-        "Sacred Beast Tear",
-        "Thick Bloodflow Tear",
-        "Flame Apparition Tear",
-        "Ember Opal Tear",
-        "Frost Opal Tear",
-        "Verdant Dark Tear",
-        "Black Flame Tear"
-      ]
-    },
-    {
-      "id": "endings",
-      "name": "Endings",
-      "desc": "The different fates of the Lands Between.",
-      "items": [
-        "Age of Fracture (default ending)",
-        "Lord of Frenzied Flame",
-        "Age of Order (Goldmask)",
-        "Age of the Stars (Ranni)",
-        "Age of Duskborn (Dung Eater)"
-      ]
-    },
-    {
       "id": "trophies",
-      "name": "Trophies / Achievements (Steam & PSN)",
+      "name": "Achievements",
       "desc": "Official, complete list: 42 trophies/achievements, identical on Steam and PSN. The Shadow of the Erdtree DLC added no new trophies — the Platinum only covers the base game.",
       "items": [
         "Roundtable Hold",
@@ -195,21 +63,322 @@
       ]
     },
     {
-      "id": "milestones",
-      "name": "Exploration Milestones",
-      "desc": "Unofficial world progression, useful to track your run (not real trophies).",
-      "items": [
-        "Reach Altus Plateau",
-        "Reach Caelid",
-        "Reach Leyndell, Royal Capital",
-        "Reach Mountaintops of the Giants",
-        "Reach Crumbling Farum Azula",
-        "Reach Ashen Capital",
-        "Activate all Divine Towers",
-        "Recruit an NPC to the Roundtable Hold",
-        "Fully complete an NPC questline",
-        "Reach character level 150"
+      "id": "weapons",
+      "name": "Weapons",
+      "desc": "Complete list of the game's weapons, organized by category. Still missing: Axes, Greataxes, Hammers, Flails, Great Hammers, Colossal Weapons, Spears, Great Spears, Halberds, Reapers, Whips, Fists, Claws, Bows, Greatbows, Crossbows, Ballistas, Glintstone Staffs, Sacred Seals, Torches.",
+      "subcategories": [
+        {
+          "id": "daggers",
+          "name": "Daggers",
+          "items": [
+            "Dagger",
+            "Parrying Dagger",
+            "Misericorde",
+            "Great Knife",
+            "Bloodstained Dagger",
+            "Erdsteel Dagger",
+            "Wakizashi",
+            "Celebrant's Sickle",
+            "Ivory Sickle",
+            "Crystal Knife",
+            "Scorpion's Stinger",
+            "Cinquedea",
+            "Glintstone Kris",
+            "Reduvia",
+            "Blade of Calling",
+            "Black Knife",
+            "Main-gauche",
+            "Fire Knight's Shortsword"
+          ]
+        },
+        {
+          "id": "straight_swords",
+          "name": "Straight Swords",
+          "items": [
+            "Short Sword",
+            "Longsword",
+            "Broadsword",
+            "Weathered Straight Sword",
+            "Lordsworn's Straight Sword",
+            "Noble's Slender Sword",
+            "Cane Sword",
+            "Warhawk's Talon",
+            "Lazuli Glintstone Sword",
+            "Carian Knight's Sword",
+            "Crystal Sword",
+            "Rotten Crystal Sword",
+            "Miquellan Knight's Sword",
+            "Ornamental Straight Sword",
+            "Golden Epitaph",
+            "Sword of St Trina",
+            "Regalia of Eochaid",
+            "Coded Sword",
+            "Sword of Night and Flame",
+            "Velvet Sword of St Trina",
+            "Stone-Sheathed Sword",
+            "Sword of Light",
+            "Sword of Darkness"
+          ]
+        },
+        {
+          "id": "greatswords",
+          "name": "Greatswords",
+          "items": [
+            "Bastard Sword",
+            "Claymore",
+            "Iron Greatsword",
+            "Lordsworn's Greatsword",
+            "Knight's Greatsword",
+            "Banished Knight's Greatsword",
+            "Forked Greatsword",
+            "Flamberge",
+            "Gargoyle's Greatsword",
+            "Gargoyle's Blackblade",
+            "Inseparable Sword",
+            "Sword of Milos",
+            "Marais Executioner's Sword",
+            "Ordovis's Greatsword",
+            "Alabaster Lord's Sword",
+            "Death's Poker",
+            "Helphen's Steeple",
+            "Blasphemous Blade",
+            "Golden Order Greatsword",
+            "Dark Moon Greatsword",
+            "Sacred Relic Sword",
+            "Lizard Greatsword",
+            "Greatsword of Damnation",
+            "Greatsword of Solitude"
+          ]
+        },
+        {
+          "id": "colossal_swords",
+          "name": "Colossal Swords",
+          "items": [
+            "Zweihander",
+            "Greatsword",
+            "Watchdog's Greatsword",
+            "Troll's Golden Sword",
+            "Troll Knight's Sword",
+            "Royal Greatsword",
+            "Grafted Blade Greatsword",
+            "Ruins Greatsword",
+            "Starscourge Greatsword",
+            "Godslayer's Greatsword",
+            "Maliketh's Black Blade",
+            "Ancient Meteoric Ore Greatsword",
+            "Fire Knight's Greatsword",
+            "Greatsword of Radahn (Light)",
+            "Greatsword of Radahn (Lord)",
+            "Moonrithyll's Knight Sword"
+          ]
+        },
+        {
+          "id": "thrusting_swords",
+          "name": "Thrusting Swords",
+          "items": [
+            "Rapier",
+            "Estoc",
+            "Noble's Estoc",
+            "Cleanrot Knight's Sword",
+            "Rogier's Rapier",
+            "Antspur Rapier",
+            "Frozen Needle",
+            "Carian Sorcery Sword"
+          ]
+        },
+        {
+          "id": "heavy_thrusting_swords",
+          "name": "Heavy Thrusting Swords",
+          "items": [
+            "Great Epee",
+            "Godskin Stitcher",
+            "Bloody Helice",
+            "Dragon King's Cragblade",
+            "Queelign's Greatsword",
+            "Sword Lance"
+          ]
+        },
+        {
+          "id": "curved_swords",
+          "name": "Curved Swords",
+          "items": [
+            "Scimitar",
+            "Falchion",
+            "Shamshir",
+            "Grossmesser",
+            "Bandit's Curved Sword",
+            "Shotel",
+            "Scavenger's Curved Sword",
+            "Mantis Blade",
+            "Beastman's Curved Sword",
+            "Flowing Curved Sword",
+            "Serpent-God's Curved Sword",
+            "Magma Blade",
+            "Nox Flowing Sword",
+            "Wing of Astel",
+            "Eclipse Shotel",
+            "Spirit Sword",
+            "Falx",
+            "Dancing Blade of Ranah",
+            "Horned Warrior's Sword"
+          ]
+        },
+        {
+          "id": "curved_greatswords",
+          "name": "Curved Greatswords",
+          "items": [
+            "Dismounter",
+            "Omen Cleaver",
+            "Monk's Flameblade",
+            "Beastman's Cleaver",
+            "Bloodhound's Fang",
+            "Onyx Lord's Greatsword",
+            "Zamor Curved Sword",
+            "Magma Wyrm's Scalesword",
+            "Morgott's Cursed Sword",
+            "Horned Warrior's Greatsword",
+            "Freyja's Greatsword"
+          ]
+        },
+        {
+          "id": "katanas",
+          "name": "Katanas",
+          "items": [
+            "Uchigatana",
+            "Nagakiba",
+            "Serpentbone Blade",
+            "Meteoric Ore Blade",
+            "Moonveil",
+            "Rivers of Blood",
+            "Dragonscale Blade",
+            "Hand of Malenia",
+            "Star-Lined Sword",
+            "Sword of Night"
+          ]
+        },
+        {
+          "id": "twinblades",
+          "name": "Twinblades",
+          "items": [
+            "Twinblade",
+            "Twinned Knight Swords",
+            "Godskin Peeler",
+            "Gargoyle's Twinblade",
+            "Gargoyle's Black Blades",
+            "Eleonora's Poleblade"
+          ]
+        },
+        {
+          "id": "thrusting_shields",
+          "name": "Thrusting Shields",
+          "items": [
+            "Dueling Shield",
+            "Carian Thrusting Shield"
+          ]
+        },
+        {
+          "id": "hand_to_hand",
+          "name": "Hand-to-Hand Arts",
+          "items": [
+            "Dryleaf Arts",
+            "Dane's Footwork"
+          ]
+        },
+        {
+          "id": "throwing_blades",
+          "name": "Throwing Blades",
+          "items": [
+            "Smithscript Dagger"
+          ]
+        },
+        {
+          "id": "backhand_blades",
+          "name": "Backhand Blades",
+          "items": [
+            "Backhand Blade",
+            "Smithscript Cirque",
+            "Curseblade's Cirque"
+          ]
+        },
+        {
+          "id": "perfume_bottles",
+          "name": "Perfume Bottles",
+          "items": [
+            "Firespark Perfume Bottle",
+            "Chilling Perfume Bottle",
+            "Frenzyflame Perfume Bottle",
+            "Lightning Perfume Bottle",
+            "Deadly Poison Perfume Bottle"
+          ]
+        },
+        {
+          "id": "beast_claws",
+          "name": "Beast Claws",
+          "items": [
+            "Red Bear's Claw",
+            "Beast Claw"
+          ]
+        },
+        {
+          "id": "light_greatswords",
+          "name": "Light Greatswords",
+          "items": [
+            "Milady",
+            "Leda's Sword",
+            "Rellana's Twin Blades"
+          ]
+        },
+        {
+          "id": "great_katanas",
+          "name": "Great Katanas",
+          "items": [
+            "Great Katana",
+            "Dragon-Hunter's Great Katana",
+            "Rakshasa's Great Katana"
+          ]
+        }
       ]
+    },
+    {
+      "id": "armor",
+      "name": "Armor",
+      "desc": "Pending category — under construction. Will be filled in soon with the full official list.",
+      "items": []
+    },
+    {
+      "id": "spells",
+      "name": "Spells",
+      "desc": "Pending category — under construction. Will be filled in soon with the full official list.",
+      "subcategories": [
+        {
+          "id": "sorceries",
+          "name": "Sorceries",
+          "items": []
+        },
+        {
+          "id": "incantations",
+          "name": "Incantations",
+          "items": []
+        }
+      ]
+    },
+    {
+      "id": "talismans",
+      "name": "Talismans",
+      "desc": "Pending category — under construction. Will be filled in soon with the full official list.",
+      "items": []
+    },
+    {
+      "id": "spirit_ashes",
+      "name": "Spirit Ashes",
+      "desc": "Pending category — under construction. Will be filled in soon with the full official list.",
+      "items": []
+    },
+    {
+      "id": "ashes_of_war",
+      "name": "Ashes of War",
+      "desc": "Pending category — under construction. Will be filled in soon with the full official list.",
+      "items": []
     }
   ]
 }
