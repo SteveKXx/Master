@@ -1,0 +1,215 @@
+{
+  "ui": {
+    "title": "Checklist das Terras Intermédias",
+    "subtitle": "Runas, rememorações, feitiços e mais — acompanhe sua jornada até se tornar Lorde Prístino. Seu progresso é salvo automaticamente.",
+    "ringSub": "COMPLETO",
+    "footerQuote": "Que a graça te guie, Sem-Enxertado.",
+    "resetBtn": "Reiniciar progresso",
+    "resetConfirm": "Isso vai apagar todo o seu progresso marcado (itens personalizados serão mantidos). Continuar?",
+    "addPlaceholder": "Adicionar item personalizado a esta categoria...",
+    "addBtn": "Adicionar",
+    "completedLabel": "concluídos",
+    "removeTitle": "Remover"
+  },
+  "categories": [
+    {
+      "id": "runes",
+      "name": "Grandes Runas",
+      "desc": "As runas roubadas dos semideuses, necessárias para reparar o Anel de Elden.",
+      "items": [
+        "Grande Runa de Godrick",
+        "Grande Runa da Deserdada (Rennala)",
+        "Grande Runa de Radahn",
+        "Grande Runa de Morgott",
+        "Grande Runa de Rykard",
+        "Grande Runa de Malenia"
+      ]
+    },
+    {
+      "id": "remembrances",
+      "name": "Rememorações",
+      "desc": "Trocadas com o Finger Reader Enia por armas ou talismãs lendários dos chefes principais.",
+      "items": [
+        "Rememoração do Rei Enxertado (Godrick)",
+        "Rememoração da Rainha da Lua Cheia (Rennala)",
+        "Rememoração da Lâmina Blasfema (Rykard)",
+        "Rememoração do Punho de Ferro (Radahn)",
+        "Rememoração do Rei dos Omens (Morgott)",
+        "Rememoração do Espírito Ancestral Régio",
+        "Rememoração do Senhor-Dragão Placidusax",
+        "Rememoração do Gigante de Fogo",
+        "Rememoração da Lâmina Negra (Maliketh)",
+        "Rememoração da Lichdragon Fortissax",
+        "Rememoração do Senhor do Sangue (Mohg)",
+        "Rememoração do Duo Amaldiçoado (Dupla Pele-de-Deus)",
+        "Rememoração da Nobre Pele-de-Deus",
+        "Rememoração da Aberração Astel",
+        "Rememoração de Malenia, Lâmina de Miquella",
+        "Rememoração de Radagon / Besta Elden"
+      ]
+    },
+    {
+      "id": "dlc",
+      "name": "Sombra da Árvore Erdtree (DLC)",
+      "desc": "Marcos principais da expansão Shadow of the Erdtree.",
+      "items": [
+        "Derrotar Messmer, o Empalador",
+        "Derrotar Rellana, Cavaleira da Lua Gêmea",
+        "Derrotar Metyr, Mãe dos Dedos",
+        "Derrotar Bayle, o Temido",
+        "Derrotar Radahn, o Consorte Prometido",
+        "Explorar Terra das Sombras por completo"
+      ]
+    },
+    {
+      "id": "talismans",
+      "name": "Talismãs Notáveis",
+      "desc": "Talismãs raros e poderosos encontrados pelo mundo.",
+      "items": [
+        "Selo Espinhoso de Radagon",
+        "Talismã da Tartaruga de Duas Cabeças",
+        "Escaravelho Prateado",
+        "Talismã da Espada Curva",
+        "Prótese de Millicent",
+        "Talismã do Escudo Dragoncrest +2",
+        "Herança do Portador da Prótese",
+        "Talismã da Espada Ritual",
+        "Fragmento de Alexander",
+        "Arsenal do Grande Jarro"
+      ]
+    },
+    {
+      "id": "spells",
+      "name": "Feitiços Raros",
+      "desc": "Feitiçarias e incantações poderosas ou emblemáticas.",
+      "items": [
+        "Cometa Azur (Feitiçaria)",
+        "Lua Cheia de Rennala (Feitiçaria)",
+        "Lua Negra de Ranni (Feitiçaria)",
+        "Meteoro de Astel (Feitiçaria)",
+        "Chuva Fundadora de Estrelas (Feitiçaria)",
+        "Lâmina Lunar de Adula (Feitiçaria)",
+        "Estrelas da Ruína (Feitiçaria)",
+        "Estrelas Élden (Incantação)",
+        "Ruína de Placidusax (Incantação)",
+        "Rancor de Rykard (Incantação)",
+        "Fundamentalismo da Ordem Dourada (Incantação)",
+        "Chama do Deus Caído (Incantação)",
+        "Chama Enlouquecida (Incantação)",
+        "Garras de Chama Sanguínea (Incantação)"
+      ]
+    },
+    {
+      "id": "whetblades",
+      "name": "Lâminas de Amolar",
+      "desc": "Desbloqueiam afinidades de armas nos ferreiros de campo.",
+      "items": [
+        "Lâmina Sagrada",
+        "Lâmina Sombria",
+        "Lâmina de Enlouquecimento",
+        "Lâmina de Sangue",
+        "Lâmina de Frio",
+        "Lâmina de Fogo",
+        "Lâmina de Raio",
+        "Lâmina da Morte",
+        "Lâmina Ocultista",
+        "Lâmina Sublime (Somber)"
+      ]
+    },
+    {
+      "id": "teardrops",
+      "name": "Lágrimas Cristalinas",
+      "desc": "Ingredientes de frasco notáveis do Frasco de Físico Cruzado.",
+      "items": [
+        "Lágrima Dourada dos Deuses de Ouro",
+        "Lágrima Cerúlea Curativa",
+        "Lágrima Carmesim Curativa",
+        "Lágrima da Fera Sagrada",
+        "Lágrima do Fluxo de Sangue Espesso",
+        "Lágrima da Aparição Flamejante",
+        "Lágrima da Opala Ardente",
+        "Lágrima da Opala de Vento Gélido",
+        "Lágrima Verdinegra",
+        "Lágrima da Chama Negra"
+      ]
+    },
+    {
+      "id": "endings",
+      "name": "Finais",
+      "desc": "Os diferentes destinos das Terras Intermédias.",
+      "items": [
+        "Era do Fragmentário (final padrão)",
+        "Senhor da Chama Enlouquecida",
+        "Era da Ordem Dourada (Máscara Dourada)",
+        "Era das Estrelas (Ranni)",
+        "Era do Amanhecer Sombrio (Comedor de Esterco)"
+      ]
+    },
+    {
+      "id": "trophies",
+      "name": "Troféus / Conquistas (Steam & PSN)",
+      "desc": "Lista oficial e completa: 42 troféus/conquistas, iguais na Steam e na PSN. O DLC Sombra da Árvore Erdtree não adicionou novos troféus — a Platina cobre só o jogo base.",
+      "items": [
+        "Mesa-Redonda — chegar à Roundtable Hold",
+        "Margit, o Agouro Caído",
+        "Portador de Fragmento, Godrick",
+        "Grande Runa — restaurar o poder de uma Grande Runa",
+        "Lobo Vermelho de Radagon",
+        "Rennala, Rainha da Lua Cheia",
+        "Bastardo Leonino",
+        "Loretta, Cavaleira Real",
+        "Portador de Fragmento, Radahn",
+        "Lágrima Imitadora",
+        "Godfrey, o Primeiro Lorde Prístino",
+        "Portador de Fragmento, Morgott",
+        "Wyrm de Magma de Makar",
+        "Arma Matadora de Deuses — melhorar qualquer arma ao nível máximo",
+        "Gigante de Fogo",
+        "Térvore em Chamas — usar gravetos para incendiar a Erdtree",
+        "Comandante Niall",
+        "Portador de Fragmento, Rykard",
+        "Astel, Filho Natural da Escuridão",
+        "Dupla da Pele Divina",
+        "Nobre da Pele Divina",
+        "Espírito Ancestral",
+        "Maliketh, a Lâmina Negra",
+        "Portador de Fragmento, Mohg",
+        "Hoarah Loux, o Guerreiro",
+        "Gárgulas Valentes",
+        "Loretta, Cavaleira da Árvore Sacra",
+        "Elemer dos Espinhos",
+        "Soldado Draconiano de Nokstella",
+        "Espírito Ancestral Nobre",
+        "Portadora de Fragmento, Malenia",
+        "Mohg, o Agouro",
+        "Placidusax, o Lorde Dragão",
+        "Fortissax, o Dragão Lich",
+        "Era das Estrelas — final de Ranni",
+        "Lorde Prístino — final de Lorde Elden",
+        "Armas Lendárias — obter todas as armas lendárias",
+        "Talismãs Lendários — obter todos os talismãs lendários",
+        "Cinzas Lendárias — obter todas as cinzas lendárias",
+        "Feitiços e Encantos Lendários — obter todos os feitiços e encantos lendários",
+        "Lorde da Chama Frenética — final da Chama Enlouquecida",
+        "Anel Prístino — Platina (obter todos os outros troféus)"
+      ]
+    },
+    {
+      "id": "milestones",
+      "name": "Marcos de Exploração",
+      "desc": "Progressão não-oficial pelo mundo, útil para acompanhar sua run (não são troféus reais).",
+      "items": [
+        "Alcançar o Platô de Altus",
+        "Alcançar Caelid",
+        "Alcançar Leyndell, Capital Real",
+        "Alcançar o Cume dos Gigantes",
+        "Alcançar Farum Azula em Ruínas",
+        "Alcançar a Capital das Cinzas",
+        "Ativar todas as Torres Divinas",
+        "Recrutar um NPC para a Roundtable Hold",
+        "Completar uma linha de missão de NPC por inteiro",
+        "Alcançar o nível de personagem 150"
+      ]
+    }
+  ]
+}
