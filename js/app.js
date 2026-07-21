@@ -1,5 +1,7 @@
 // js/app.js
 // Lógica principal do checklist. Depende de js/lang.js já carregado antes.
+// Suporta categorias simples (ex: Conquistas) e categorias com subcategorias
+// (ex: Armas -> Punhais, Katanas...; Feitiços -> Feitiçarias, Encantamentos).
 
 // Nomes dos arquivos de imagem dos troféus, na MESMA ordem dos itens
 // da categoria "trophies" em qualquer idioma (a ordem é idêntica nos JSONs).
@@ -25,6 +27,7 @@ let LANG_DATA = null;
 let checked = {};
 let custom = {};
 let activeCat = null;
+let activeSubcat = null;
 
 function loadLocalState() {
   try {
@@ -47,16 +50,25 @@ function saveCustom() {
   catch (e) { console.error('Erro ao salvar itens personalizados', e); }
 }
 
-function allItemsFor(cat) {
-  const built = cat.items.map((name, i) => ({
-    id: cat.id + '-' + i,
+// Retorna a lista de "folhas" de uma categoria: se ela tem subcategorias,
+// uma folha por subcategoria; senão, a própria categoria é a única folha.
+function leavesOf(cat) {
+  if (cat.subcategories && cat.subcategories.length) {
+    return cat.subcategories.map(sub => ({ leafKey: cat.id + '::' + sub.id, leaf: sub }));
+  }
+  return [{ leafKey: cat.id, leaf: cat }];
+}
+
+function allItemsForLeaf(leafKey, leaf, catId) {
+  const built = (leaf.items || []).map((name, i) => ({
+    id: leafKey + '-' + i,
     name,
     custom: false,
-    img: (cat.id === 'trophies' && TROPHY_IMAGE_FILES[i])
+    img: (catId === 'trophies' && TROPHY_IMAGE_FILES[i])
       ? 'img/trophies/' + TROPHY_IMAGE_FILES[i]
       : null,
   }));
-  const extra = (custom[cat.id] || []).map(it => ({
+  const extra = (custom[leafKey] || []).map(it => ({
     id: it.id, name: it.name, custom: true, img: null,
   }));
   return built.concat(extra);
@@ -65,9 +77,11 @@ function allItemsFor(cat) {
 function totalCounts() {
   let total = 0, done = 0;
   LANG_DATA.categories.forEach(cat => {
-    allItemsFor(cat).forEach(it => {
-      total++;
-      if (checked[it.id]) done++;
+    leavesOf(cat).forEach(({ leafKey, leaf }) => {
+      allItemsForLeaf(leafKey, leaf, cat.id).forEach(it => {
+        total++;
+        if (checked[it.id]) done++;
+      });
     });
   });
   return { total, done };
@@ -77,13 +91,42 @@ function renderNav() {
   const nav = document.getElementById('nav');
   nav.innerHTML = '';
   LANG_DATA.categories.forEach(cat => {
-    const items = allItemsFor(cat);
-    const done = items.filter(it => checked[it.id]).length;
+    let total = 0, done = 0;
+    leavesOf(cat).forEach(({ leafKey, leaf }) => {
+      allItemsForLeaf(leafKey, leaf, cat.id).forEach(it => {
+        total++;
+        if (checked[it.id]) done++;
+      });
+    });
     const btn = document.createElement('button');
     btn.className = cat.id === activeCat ? 'active' : '';
-    btn.innerHTML = escapeHtml(cat.name) + ' <span class="count">' + done + '/' + items.length + '</span>';
-    btn.onclick = () => { activeCat = cat.id; render(); };
+    btn.innerHTML = escapeHtml(cat.name) + ' <span class="count">' + done + '/' + total + '</span>';
+    btn.onclick = () => { activeCat = cat.id; activeSubcat = null; render(); };
     nav.appendChild(btn);
+  });
+}
+
+function renderSubNav(cat) {
+  const subnav = document.getElementById('subnav');
+  if (!cat.subcategories || !cat.subcategories.length) {
+    subnav.innerHTML = '';
+    subnav.style.display = 'none';
+    return;
+  }
+  subnav.style.display = 'flex';
+  if (!activeSubcat || !cat.subcategories.some(s => s.id === activeSubcat)) {
+    activeSubcat = cat.subcategories[0].id;
+  }
+  subnav.innerHTML = '';
+  cat.subcategories.forEach(sub => {
+    const leafKey = cat.id + '::' + sub.id;
+    const items = allItemsForLeaf(leafKey, sub, cat.id);
+    const done = items.filter(it => checked[it.id]).length;
+    const btn = document.createElement('button');
+    btn.className = sub.id === activeSubcat ? 'active' : '';
+    btn.innerHTML = escapeHtml(sub.name) + ' <span class="count">' + done + '/' + items.length + '</span>';
+    btn.onclick = () => { activeSubcat = sub.id; renderSubNav(cat); renderContent(); renderRing(); };
+    subnav.appendChild(btn);
   });
 }
 
@@ -97,20 +140,31 @@ function renderRing() {
   document.getElementById('countLabel').textContent = done + '/' + total;
 }
 
+function getActiveLeaf() {
+  const cat = LANG_DATA.categories.find(c => c.id === activeCat);
+  if (cat.subcategories && cat.subcategories.length) {
+    let sub = cat.subcategories.find(s => s.id === activeSubcat);
+    if (!sub) { sub = cat.subcategories[0]; activeSubcat = sub.id; }
+    return { cat, leaf: sub, leafKey: cat.id + '::' + sub.id, leafDesc: sub.desc || cat.desc, leafName: sub.name };
+  }
+  return { cat, leaf: cat, leafKey: cat.id, leafDesc: cat.desc, leafName: cat.name };
+}
+
 function renderContent() {
   const ui = LANG_DATA.ui;
-  const cat = LANG_DATA.categories.find(c => c.id === activeCat);
-  const items = allItemsFor(cat);
+  const { cat, leaf, leafKey, leafDesc } = getActiveLeaf();
+  const items = allItemsForLeaf(leafKey, leaf, cat.id);
   const done = items.filter(it => checked[it.id]).length;
   const content = document.getElementById('content');
   const isTable = cat.id === 'trophies';
 
   let listHtml;
 
-  if (isTable) {
+  if (items.length === 0) {
+    listHtml = '<p class="empty-note">' + escapeHtml(ui.emptyNote || 'Em construção — em breve.') + '</p>';
+  } else if (isTable) {
     const rows = items.map(it => {
       const isChecked = !!checked[it.id];
-      // separa "Título — Descrição" em duas linhas, se houver " — "
       const parts = it.name.split(' — ');
       const title = parts[0];
       const desc = parts.slice(1).join(' — ');
@@ -138,12 +192,12 @@ function renderContent() {
   }
 
   content.innerHTML =
-    '<div class="section-head"><h2>' + escapeHtml(cat.name) + '</h2><span class="stat">' + done + ' / ' + items.length + ' ' + escapeHtml(ui.completedLabel) + '</span></div>'
-    + '<p class="section-desc">' + escapeHtml(cat.desc) + '</p>'
+    '<div class="section-head"><h2>' + escapeHtml(cat.subcategories ? cat.name + ' — ' + getActiveLeaf().leafName : cat.name) + '</h2><span class="stat">' + done + ' / ' + items.length + ' ' + escapeHtml(ui.completedLabel) + '</span></div>'
+    + '<p class="section-desc">' + escapeHtml(leafDesc || '') + '</p>'
     + listHtml
     + '<div class="add-row"><input type="text" id="addInput" placeholder="' + escapeHtml(ui.addPlaceholder) + '"/><button id="addBtn">' + escapeHtml(ui.addBtn) + '</button></div>';
 
-  content.querySelectorAll('.item, .trow:not(.trow-head)').forEach(el => {
+  content.querySelectorAll('.item, .trow').forEach(el => {
     el.addEventListener('click', (e) => {
       if (e.target.closest('.rm-btn')) return;
       toggleItem(el.getAttribute('data-id'));
@@ -177,16 +231,18 @@ function addCustomItem() {
   const input = document.getElementById('addInput');
   const val = input.value.trim();
   if (!val) return;
-  const id = 'custom-' + activeCat + '-' + Date.now();
-  if (!custom[activeCat]) custom[activeCat] = [];
-  custom[activeCat].push({ id, name: val });
+  const { leafKey } = getActiveLeaf();
+  const id = 'custom-' + leafKey + '-' + Date.now();
+  if (!custom[leafKey]) custom[leafKey] = [];
+  custom[leafKey].push({ id, name: val });
   input.value = '';
   render();
   saveCustom();
 }
 
 function removeCustomItem(id) {
-  custom[activeCat] = (custom[activeCat] || []).filter(it => it.id !== id);
+  const { leafKey } = getActiveLeaf();
+  custom[leafKey] = (custom[leafKey] || []).filter(it => it.id !== id);
   delete checked[id];
   render();
   saveCustom();
@@ -195,8 +251,7 @@ function removeCustomItem(id) {
 
 function renderStaticText() {
   const ui = LANG_DATA.ui;
-  document.getElementById('heroTitle').textContent = ui.title;
-  document.getElementById('heroSubtitle').textContent = ui.subtitle;
+  document.getElementById('heroTitle').textContent = 'Elden Ring';
   document.getElementById('footerQuote').textContent = ui.footerQuote;
   document.getElementById('resetBtn').textContent = ui.resetBtn;
 }
@@ -204,6 +259,8 @@ function renderStaticText() {
 function render() {
   renderStaticText();
   renderNav();
+  const cat = LANG_DATA.categories.find(c => c.id === activeCat);
+  renderSubNav(cat);
   renderContent();
   renderRing();
 }
@@ -212,6 +269,7 @@ async function initApp(langData) {
   LANG_DATA = langData;
   if (!activeCat || !LANG_DATA.categories.some(c => c.id === activeCat)) {
     activeCat = LANG_DATA.categories[0].id;
+    activeSubcat = null;
   }
   render();
 }
