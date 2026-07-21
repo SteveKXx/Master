@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lands Between — Checklist</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="wrap">
+
+  <div class="lang-switch" id="langSwitch"></div>
+
+  <div class="hero">
+    <div class="ring-wrap">
+      <svg width="118" height="118" viewBox="0 0 118 118">
+        <circle class="ring-bg" cx="59" cy="59" r="50"></circle>
+        <circle class="ring-fg" id="ringFg" cx="59" cy="59" r="50" stroke-dasharray="314" stroke-dashoffset="314"></circle>
+      </svg>
+      <div class="ring-label">
+        <span class="pct" id="pctLabel">0%</span>
+        <span class="sub" id="countLabel">0/0</span>
+      </div>
+    </div>
+    <div class="hero-text">
+      <h1 id="heroTitle">Checklist das Terras Intermédias</h1>
+      <p id="heroSubtitle"></p>
+    </div>
+  </div>
+
+  <nav class="nav" id="nav"></nav>
+
+  <div id="content"></div>
+
+  <footer>
+    <span id="footerQuote"></span>
+    <button id="resetBtn">Reiniciar progresso</button>
+  </footer>
+
+</div>
+
+<script src="js/lang.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
