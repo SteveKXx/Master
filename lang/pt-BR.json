@@ -65,7 +65,7 @@
     {
       "id": "weapons",
       "name": "Armas",
-      "desc": "Lista completa de armas do jogo, organizada por categoria. Ainda faltam: Machados, Machados Grandes, Martelos, Mangoás, Martelos Grandes, Armas Colossais, Lanças, Grandes Lanças, Alabardas, Foices, Chicotes, Punhos, Garras, Arcos, Grandes Arcos, Bestas, Balistas, Cajados, Selos Sagrados, Tochas.",
+      "desc": "Lista completa de armas do jogo, organizada por categoria. As categorias marcadas com * foram preenchidas com base em conhecimento geral (não re-verificadas por busca individual) — use os botões de adicionar/remover para corrigir nomes que estejam errados ou faltando.",
       "subcategories": [
         {
           "id": "daggers",
@@ -335,6 +335,290 @@
             "Great Katana",
             "Dragon-Hunter's Great Katana",
             "Rakshasa's Great Katana"
+          ]
+        },
+        {
+          "id": "axes",
+          "name": "Machados",
+          "items": [
+            "Hand Axe",
+            "Forked Hatchet",
+            "Battle Axe",
+            "Warped Axe",
+            "Jawbone Axe",
+            "Iron Cleaver",
+            "Highland Axe",
+            "Celebrant's Cleaver",
+            "Sacrificial Axe",
+            "Icerind Hatchet",
+            "Ripple Blade",
+            "Stormhawk Axe",
+            "Rosus' Axe",
+            "Forked-Tongue Hatchet",
+            "Smithscript Axe",
+            "Messmer Soldier's Axe",
+            "Death Knight's Twin Axes"
+          ]
+        },
+        {
+          "id": "greataxes",
+          "name": "Machados Grandes",
+          "items": [
+            "Greataxe",
+            "Great Omenkiller Cleaver",
+            "Axe of Godrick",
+            "Butchering Knife",
+            "Gargoyle's Black Axe",
+            "Rusted Anchor",
+            "Longhaft Axe",
+            "Crescent Moon Axe",
+            "Bonny Butchering Knife",
+            "Death Knight's Longhaft Axe",
+            "Putrescence Cleaver"
+          ]
+        },
+        {
+          "id": "hammers",
+          "name": "Martelos",
+          "items": [
+            "Flowerstone Gavel",
+            "Club",
+            "Curved Club",
+            "Spiked Club",
+            "Stone Club",
+            "Mace",
+            "Morning Star",
+            "Warpick",
+            "Hammer",
+            "Monk's Flamemace",
+            "Varre's Bouquet",
+            "Envoy's Horn",
+            "Nox Flowing Hammer",
+            "Ringed Finger",
+            "Scepter of the All-Knowing",
+            "Marika's Hammer"
+          ]
+        },
+        {
+          "id": "flails",
+          "name": "Mangoás",
+          "items": [
+            "Flail",
+            "Nightrider Flail",
+            "Chainlink Flail"
+          ]
+        },
+        {
+          "id": "great_hammers",
+          "name": "Martelos Grandes",
+          "items": [
+            "Great Club",
+            "Brick Hammer",
+            "Giant-Crusher",
+            "Great Mace",
+            "Troll's Hammer",
+            "Devourer's Scepter",
+            "Prelate's Inferno Crozier",
+            "Black Steel Greathammer",
+            "Smithscript Greathammer"
+          ]
+        },
+        {
+          "id": "colossal_weapons",
+          "name": "Armas Colossais",
+          "items": [
+            "Envoy's Long Horn",
+            "Wraith Calling Bell",
+            "Duelist Greataxe",
+            "Zweihander (Colossal)",
+            "Rotten Staff"
+          ]
+        },
+        {
+          "id": "spears",
+          "name": "Lanças",
+          "items": [
+            "Spear",
+            "Short Spear",
+            "Partisan",
+            "Pike",
+            "Lance",
+            "Iron Spear",
+            "Cross-Naginata",
+            "Celebrant's Rib-Rake",
+            "Spiked Spear",
+            "Rotten Crystal Spear",
+            "Clayman's Harpoon",
+            "Crystal Spear"
+          ]
+        },
+        {
+          "id": "great_spears",
+          "name": "Grandes Lanças",
+          "items": [
+            "Serpent-Hunter",
+            "Cleanrot Spear",
+            "Vyke's War Spear",
+            "Siluria's Tree",
+            "Treespear",
+            "Bolt of Gransax",
+            "Mohgwyn's Sacred Spear"
+          ]
+        },
+        {
+          "id": "halberds",
+          "name": "Alabardas",
+          "items": [
+            "Halberd",
+            "Glaive",
+            "Golden Halberd",
+            "Guardian's Swordspear",
+            "Banished Knight's Halberd",
+            "Vulgar Militia Saw",
+            "Commander's Standard",
+            "Dragon Halberd",
+            "Gargoyle's Halberd",
+            "Gargoyle's Black Halberd",
+            "Golem's Halberd",
+            "Ripple Crescent Halberd"
+          ]
+        },
+        {
+          "id": "reapers",
+          "name": "Foices",
+          "items": [
+            "Scythe",
+            "Grave Scythe",
+            "Winged Scythe"
+          ]
+        },
+        {
+          "id": "whips",
+          "name": "Chicotes",
+          "items": [
+            "Whip",
+            "Thorned Whip",
+            "Urumi",
+            "Hoslow's Petal Whip",
+            "Bloodfiend's Arm",
+            "Giant's Red Braid"
+          ]
+        },
+        {
+          "id": "fists",
+          "name": "Punhos",
+          "items": [
+            "Caestus",
+            "Spiked Caestus",
+            "Iron Ball",
+            "Star Fist",
+            "Katar",
+            "Cipher Pata",
+            "Veteran's Prosthesis",
+            "Clinging Bone",
+            "Grafted Dragon"
+          ]
+        },
+        {
+          "id": "claws",
+          "name": "Garras",
+          "items": [
+            "Claws",
+            "Venomous Fang",
+            "Bloodhound Claws",
+            "Hookclaws",
+            "Raptor Talons"
+          ]
+        },
+        {
+          "id": "light_bows",
+          "name": "Arcos Leves",
+          "items": [
+            "Short Bow",
+            "Horn Bow"
+          ]
+        },
+        {
+          "id": "bows",
+          "name": "Arcos",
+          "items": [
+            "Composite Bow",
+            "Longbow",
+            "Black Bow",
+            "Pulley Bow",
+            "Harp Bow"
+          ]
+        },
+        {
+          "id": "greatbows",
+          "name": "Grandes Arcos",
+          "items": [
+            "Greatbow",
+            "Lion Greatbow",
+            "Erdtree Greatbow"
+          ]
+        },
+        {
+          "id": "crossbows",
+          "name": "Bestas",
+          "items": [
+            "Light Crossbow",
+            "Crossbow",
+            "Heavy Crossbow",
+            "Full Moon Crossbow",
+            "Arbalest"
+          ]
+        },
+        {
+          "id": "ballistas",
+          "name": "Balistas",
+          "items": [
+            "Hand Ballista",
+            "Ballista"
+          ]
+        },
+        {
+          "id": "glintstone_staffs",
+          "name": "Cajados",
+          "items": [
+            "Glintstone Staff",
+            "Meteorite Staff",
+            "Astrologer's Staff",
+            "Carian Glintstone Staff",
+            "Carian Regal Scepter",
+            "Demi-Human Queen's Staff",
+            "Academy Glintstone Staff",
+            "Albinauric Staff",
+            "Lusat's Glintstone Staff",
+            "Azur's Glintstone Staff",
+            "Staff of Loss",
+            "Staff of the Guilty"
+          ]
+        },
+        {
+          "id": "sacred_seals",
+          "name": "Selos Sagrados",
+          "items": [
+            "Finger Seal",
+            "Godslayer's Seal",
+            "Erdtree Seal",
+            "Gravel Stone Seal",
+            "Golden Order Seal",
+            "Clawmark Seal",
+            "Dragon Communion Seal",
+            "Giant's Seal",
+            "Frenzied Flame Seal"
+          ]
+        },
+        {
+          "id": "torches",
+          "name": "Tochas",
+          "items": [
+            "Torch",
+            "Steel-Wire Torch",
+            "St. Trina's Torch",
+            "Erdtree Torch",
+            "Beast-Repellent Torch"
           ]
         }
       ]
