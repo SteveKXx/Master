@@ -103,24 +103,50 @@ function renderContent() {
   const items = allItemsFor(cat);
   const done = items.filter(it => checked[it.id]).length;
   const content = document.getElementById('content');
+  const isTable = cat.id === 'trophies';
 
-  const grid = items.map(it => {
-    const isChecked = !!checked[it.id];
-    return '<div class="item ' + (isChecked ? 'checked' : '') + '" data-id="' + it.id + '">'
-      + '<div class="seal"></div>'
-      + (it.img ? '<img class="item-img" src="' + it.img + '" alt="" />' : '')
-      + '<div class="item-text"><span class="name">' + escapeHtml(it.name) + '</span></div>'
-      + (it.custom ? '<button class="rm-btn" data-remove="' + it.id + '" title="' + escapeHtml(ui.removeTitle) + '">✕</button>' : '')
+  let listHtml;
+
+  if (isTable) {
+    const rows = items.map(it => {
+      const isChecked = !!checked[it.id];
+      // separa "Título — Descrição" em duas linhas, se houver " — "
+      const parts = it.name.split(' — ');
+      const title = parts[0];
+      const desc = parts.slice(1).join(' — ');
+      return '<div class="trow ' + (isChecked ? 'checked' : '') + '" data-id="' + it.id + '">'
+        + '<div class="trow-icon">' + (it.img ? '<img src="' + it.img + '" alt="" />' : '<div class="seal"></div>') + '</div>'
+        + '<div class="trow-text">'
+          + '<span class="trow-title">' + escapeHtml(title) + '</span>'
+          + (desc ? '<span class="trow-desc">' + escapeHtml(desc) + '</span>' : '')
+        + '</div>'
+        + '<div class="trow-check"><div class="seal small"></div></div>'
+        + (it.custom ? '<button class="rm-btn" data-remove="' + it.id + '" title="' + escapeHtml(ui.removeTitle) + '">✕</button>' : '')
+        + '</div>';
+    }).join('');
+    listHtml = '<div class="trophy-table">'
+      + '<div class="trow trow-head"><div class="trow-icon">Ícone</div><div class="trow-text">Nome</div><div class="trow-check"></div></div>'
+      + rows
       + '</div>';
-  }).join('');
+  } else {
+    listHtml = '<div class="grid">' + items.map(it => {
+      const isChecked = !!checked[it.id];
+      return '<div class="item ' + (isChecked ? 'checked' : '') + '" data-id="' + it.id + '">'
+        + '<div class="seal"></div>'
+        + (it.img ? '<img class="item-img" src="' + it.img + '" alt="" />' : '')
+        + '<div class="item-text"><span class="name">' + escapeHtml(it.name) + '</span></div>'
+        + (it.custom ? '<button class="rm-btn" data-remove="' + it.id + '" title="' + escapeHtml(ui.removeTitle) + '">✕</button>' : '')
+        + '</div>';
+    }).join('') + '</div>';
+  }
 
   content.innerHTML =
     '<div class="section-head"><h2>' + escapeHtml(cat.name) + '</h2><span class="stat">' + done + ' / ' + items.length + ' ' + escapeHtml(ui.completedLabel) + '</span></div>'
     + '<p class="section-desc">' + escapeHtml(cat.desc) + '</p>'
-    + '<div class="grid">' + grid + '</div>'
+    + listHtml
     + '<div class="add-row"><input type="text" id="addInput" placeholder="' + escapeHtml(ui.addPlaceholder) + '"/><button id="addBtn">' + escapeHtml(ui.addBtn) + '</button></div>';
 
-  content.querySelectorAll('.item').forEach(el => {
+  content.querySelectorAll('.item, .trow:not(.trow-head)').forEach(el => {
     el.addEventListener('click', (e) => {
       if (e.target.closest('.rm-btn')) return;
       toggleItem(el.getAttribute('data-id'));
