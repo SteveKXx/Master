@@ -206,7 +206,7 @@ body{
   color:var(--text-dim);
   font-style:italic;
 }
-.trow-check{flex-shrink:0;}
+.trow-check{flex-shrink:0;width:22px;}
 .trow.checked{background:linear-gradient(90deg, rgba(201,162,39,0.1), transparent);}
 .trow.checked .trow-title{color:var(--gold-bright);}
 .trow.checked .trow-desc{text-decoration:line-through;}

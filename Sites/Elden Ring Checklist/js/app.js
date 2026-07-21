@@ -115,19 +115,16 @@ function renderContent() {
       const title = parts[0];
       const desc = parts.slice(1).join(' — ');
       return '<div class="trow ' + (isChecked ? 'checked' : '') + '" data-id="' + it.id + '">'
+        + '<div class="trow-check"><div class="seal small"></div></div>'
         + '<div class="trow-icon">' + (it.img ? '<img src="' + it.img + '" alt="" />' : '<div class="seal"></div>') + '</div>'
         + '<div class="trow-text">'
           + '<span class="trow-title">' + escapeHtml(title) + '</span>'
           + (desc ? '<span class="trow-desc">' + escapeHtml(desc) + '</span>' : '')
         + '</div>'
-        + '<div class="trow-check"><div class="seal small"></div></div>'
         + (it.custom ? '<button class="rm-btn" data-remove="' + it.id + '" title="' + escapeHtml(ui.removeTitle) + '">✕</button>' : '')
         + '</div>';
     }).join('');
-    listHtml = '<div class="trophy-table">'
-      + '<div class="trow trow-head"><div class="trow-icon">Ícone</div><div class="trow-text">Nome</div><div class="trow-check"></div></div>'
-      + rows
-      + '</div>';
+    listHtml = '<div class="trophy-table">' + rows + '</div>';
   } else {
     listHtml = '<div class="grid">' + items.map(it => {
       const isChecked = !!checked[it.id];
