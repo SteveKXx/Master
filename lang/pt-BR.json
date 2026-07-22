@@ -922,14 +922,14 @@
             },
             {
               "name": "Eccentric Set",
-              "helm": null,
+              "helm": "Eccentric's Hood",
               "chest": "Eccentric's Armor",
               "gauntlets": "Eccentric's Manchettes",
               "legs": "Eccentric's Breeches"
             },
             {
               "name": "Elden Lord Set",
-              "helm": null,
+              "helm": "Elden Lord Crown",
               "chest": "Elden Lord Armor",
               "gauntlets": "Elden Lord Bracers",
               "legs": "Elden Lord Greaves"
@@ -943,7 +943,7 @@
             },
             {
               "name": "Exile Set",
-              "helm": null,
+              "helm": "Exile Hood",
               "chest": "Exile Armor",
               "gauntlets": "Exile Gauntlets",
               "legs": "Exile Greaves"
@@ -957,21 +957,21 @@
             },
             {
               "name": "Fia's Set",
-              "helm": null,
+              "helm": "Fia's Hood",
               "chest": "Fia's Robe",
               "gauntlets": null,
               "legs": null
             },
             {
               "name": "Finger Maiden Set",
-              "helm": null,
+              "helm": "Finger Maiden Fillet",
               "chest": "Finger Maiden Robe",
               "gauntlets": "Fingerprint Gauntlets",
               "legs": "Finger Maiden Shoes"
             },
             {
               "name": "Fingerprint Set",
-              "helm": null,
+              "helm": "Fingerprint Helm",
               "chest": "Fingerprint Armor",
               "gauntlets": "Fingerprint Gauntlets",
               "legs": "Fingerprint Greaves"
@@ -1048,7 +1048,7 @@
             },
             {
               "name": "Goldmask's Set",
-              "helm": null,
+              "helm": "Radiant Gold Mask",
               "chest": "Goldmask's Rags",
               "gauntlets": null,
               "legs": null
@@ -1111,7 +1111,7 @@
             },
             {
               "name": "House Marais Set",
-              "helm": null,
+              "helm": "Marais Mask",
               "chest": null,
               "gauntlets": null,
               "legs": null
