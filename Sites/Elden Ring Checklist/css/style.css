@@ -221,6 +221,16 @@ body{
 .apiece-name{font-size:14px;color:var(--text);}
 .apiece-name.pending{color:var(--text-dim);font-style:italic;}
 .apiece.checked .apiece-name{color:var(--text-dim);text-decoration:line-through;}
+.apiece.checked .seal{background:var(--gold);}
+.apiece.checked .seal::after{
+  content:"";
+  position:absolute;
+  left:5px;top:1px;
+  width:4px;height:8px;
+  border:solid var(--bg);
+  border-width:0 2px 2px 0;
+  transform:rotate(45deg);
+}
 
 /* SECTION */
 .section-head{
