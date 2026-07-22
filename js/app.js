@@ -117,6 +117,12 @@ function totalCounts() {
   return { total, done };
 }
 
+function progressDot(done, total) {
+  const pct = total ? Math.round((done / total) * 100) : 0;
+  const isFull = total > 0 && done === total;
+  return '<span class="pdot' + (isFull ? ' full' : '') + '" style="--pct:' + pct + '%" title="' + done + '/' + total + '"></span>';
+}
+
 function renderNav() {
   const nav = document.getElementById('nav');
   nav.innerHTML = '';
@@ -130,7 +136,7 @@ function renderNav() {
     });
     const btn = document.createElement('button');
     btn.className = cat.id === activeCat ? 'active' : '';
-    btn.innerHTML = escapeHtml(cat.name) + ' <span class="count">' + done + '/' + total + '</span>';
+    btn.innerHTML = progressDot(done, total) + '<span class="btn-label">' + escapeHtml(cat.name) + '</span> <span class="count">' + done + '/' + total + '</span>';
     btn.onclick = () => { activeCat = cat.id; activeSubcat = null; render(); };
     nav.appendChild(btn);
   });
@@ -154,7 +160,7 @@ function renderSubNav(cat) {
     const done = items.filter(it => checked[it.id]).length;
     const btn = document.createElement('button');
     btn.className = sub.id === activeSubcat ? 'active' : '';
-    btn.innerHTML = escapeHtml(sub.name) + ' <span class="count">' + done + '/' + items.length + '</span>';
+    btn.innerHTML = progressDot(done, items.length) + '<span class="btn-label">' + escapeHtml(sub.name) + '</span> <span class="count">' + done + '/' + items.length + '</span>';
     btn.onclick = () => { activeSubcat = sub.id; renderSubNav(cat); renderContent(); renderRing(); };
     subnav.appendChild(btn);
   });
@@ -222,6 +228,7 @@ function renderContent() {
         + '<div class="aset-header" data-exp="' + expKey + '">'
           + '<span class="aset-chevron">▸</span>'
           + '<span class="aset-name">' + escapeHtml(setObj.name) + '</span>'
+          + progressDot(setDone, 4)
           + '<span class="aset-count">' + setDone + '/4</span>'
         + '</div>'
         + '<div class="aset-body">' + pieceRows + '</div>'
