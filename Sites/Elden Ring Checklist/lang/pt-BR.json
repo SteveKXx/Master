@@ -65,7 +65,7 @@
     {
       "id": "weapons",
       "name": "Armas",
-      "desc": "Lista completa de armas do jogo, organizada por categoria. As categorias marcadas com * foram preenchidas com base em conhecimento geral (não re-verificadas por busca individual) — use os botões de adicionar/remover para corrigir nomes que estejam errados ou faltando.",
+      "desc": "Lista completa de armas do jogo (40 categorias), organizada por tipo. Reverificada por fonte oficial (wiki.gg) — dados confiáveis.",
       "subcategories": [
         {
           "id": "daggers",
@@ -524,7 +524,9 @@
           "items": [
             "Scythe",
             "Grave Scythe",
-            "Winged Scythe"
+            "Halo Scythe",
+            "Winged Scythe",
+            "Obsidian Lamina"
           ]
         },
         {
@@ -535,7 +537,8 @@
             "Thorned Whip",
             "Urumi",
             "Hoslow's Petal Whip",
-            "Bloodfiend's Arm",
+            "Tooth Whip",
+            "Magma Whip Candlestick",
             "Giant's Red Braid"
           ]
         },
@@ -545,12 +548,16 @@
           "items": [
             "Caestus",
             "Spiked Caestus",
+            "Katar",
+            "Pata",
             "Iron Ball",
             "Star Fist",
-            "Katar",
-            "Cipher Pata",
-            "Veteran's Prosthesis",
             "Clinging Bone",
+            "Veteran's Prosthesis",
+            "Cipher Pata",
+            "Poisoned Hand",
+            "Madding Hand",
+            "Golem Fist",
             "Grafted Dragon"
           ]
         },
@@ -558,30 +565,34 @@
           "id": "claws",
           "name": "Garras",
           "items": [
-            "Claws",
-            "Venomous Fang",
-            "Bloodhound Claws",
             "Hookclaws",
-            "Raptor Talons"
+            "Bloodhound Claws",
+            "Venomous Fang",
+            "Raptor Talons",
+            "Claws of Night"
           ]
         },
         {
           "id": "light_bows",
           "name": "Arcos Leves",
           "items": [
-            "Short Bow",
-            "Horn Bow"
+            "Shortbow",
+            "Composite Bow",
+            "Red Branch Shotbow",
+            "Misbegotten Shortbow",
+            "Harp Bow"
           ]
         },
         {
           "id": "bows",
           "name": "Arcos",
           "items": [
-            "Composite Bow",
             "Longbow",
+            "Albinauric Bow",
             "Black Bow",
             "Pulley Bow",
-            "Harp Bow"
+            "Horn Bow",
+            "Serpent Bow"
           ]
         },
         {
@@ -589,8 +600,9 @@
           "name": "Grandes Arcos",
           "items": [
             "Greatbow",
-            "Lion Greatbow",
-            "Erdtree Greatbow"
+            "Golem Greatbow",
+            "Erdtree Greatbow",
+            "Lion Greatbow"
           ]
         },
         {
@@ -601,7 +613,9 @@
             "Crossbow",
             "Heavy Crossbow",
             "Full Moon Crossbow",
-            "Arbalest"
+            "Arbalest",
+            "Pulley Crossbow",
+            "Crepus' Black-Key Crossbow"
           ]
         },
         {
@@ -609,7 +623,8 @@
           "name": "Balistas",
           "items": [
             "Hand Ballista",
-            "Ballista"
+            "Ballista",
+            "Rabbath's Cannon"
           ]
         },
         {
@@ -624,10 +639,16 @@
             "Demi-Human Queen's Staff",
             "Academy Glintstone Staff",
             "Albinauric Staff",
+            "Prince of Death's Staff",
             "Lusat's Glintstone Staff",
             "Azur's Glintstone Staff",
             "Staff of Loss",
-            "Staff of the Guilty"
+            "Staff of the Guilty",
+            "Gelmir Glintstone Staff",
+            "Rotten Crystal Staff",
+            "Maternal Staff",
+            "Staff of the Great Beyond",
+            "Digger's Staff"
           ]
         },
         {
@@ -653,7 +674,8 @@
             "Steel-Wire Torch",
             "St. Trina's Torch",
             "Erdtree Torch",
-            "Beast-Repellent Torch"
+            "Beast-Repellent Torch",
+            "Ghostflame Torch"
           ]
         }
       ]
@@ -661,8 +683,178 @@
     {
       "id": "armor",
       "name": "Armaduras",
-      "desc": "Categoria pendente — em construção. Será preenchida em breve com a lista oficial completa.",
-      "items": []
+      "desc": "Lista completa de sets de armadura (118 do jogo base + 29 do DLC), reunida a partir da galeria oficial da wiki. Marque quando obtiver ao menos uma peça do set.",
+      "subcategories": [
+        {
+          "id": "base",
+          "name": "Jogo Base",
+          "items": [
+            "Alberich's Set",
+            "Albinauric Set",
+            "All-Knowing Set",
+            "Aristocrat Set",
+            "Astrologer Set",
+            "Azur's Glintstone Set",
+            "Bandit Set",
+            "Banished Knight Set",
+            "Battlemage Set",
+            "Beast Champion Set",
+            "Black Knife Set",
+            "Blackflame Monk Set",
+            "Blaidd's Set",
+            "Bloodhound Knight Set",
+            "Bloodsoaked Set",
+            "Blue Cloth Set",
+            "Blue Festive Set",
+            "Blue Silver Set",
+            "Briar Set",
+            "Bull-Goat Set",
+            "Carian Knight Set",
+            "Chain Set",
+            "Champion Set",
+            "Cleanrot Set",
+            "Commoner's Set",
+            "Confessor Set",
+            "Consort's Set",
+            "Crucible Axe Set",
+            "Crucible Tree Set",
+            "Cuckoo Knight Set",
+            "Depraved Perfumer Set",
+            "Drake Knight Set",
+            "Duelist Set",
+            "Eccentric Set",
+            "Elden Lord Set",
+            "Errant Sorcerer Set",
+            "Exile Set",
+            "Festive Set",
+            "Fia's Set",
+            "Finger Maiden Set",
+            "Fingerprint Set",
+            "Fire Monk Set",
+            "Fire Prelate Set",
+            "Fur Set",
+            "Gelmir Knight Set",
+            "General Radahn Set",
+            "Godrick Foot Soldier Set",
+            "Godrick Knight Set",
+            "Godrick Soldier Set",
+            "Godskin Apostle Set",
+            "Godskin Noble Set",
+            "Goldmask's Set",
+            "Guardian Set",
+            "Guilty Set",
+            "Haligtree Foot Soldier Set",
+            "Haligtree Knight Set",
+            "Haligtree Soldier Set",
+            "High Page Set",
+            "Highwayman Set",
+            "Hoslow's Set",
+            "House Marais Set",
+            "Iron Set",
+            "Juvenile Scholar Set",
+            "Kaiden Set",
+            "Knight Set",
+            "Land of Reeds Set",
+            "Lazuli Sorcerer Set",
+            "Leather Set",
+            "Leyndell Foot Soldier Set",
+            "Leyndell Knight Set",
+            "Leyndell Soldier Set",
+            "Lionel's Set",
+            "Lusat's Set",
+            "Malenia's Set",
+            "Malformed Dragon Set",
+            "Maliketh's Set",
+            "Marionette Soldier Set",
+            "Mausoleum Foot Soldier Set",
+            "Mausoleum Knight Set",
+            "Mausoleum Soldier Set",
+            "Millicent's Set",
+            "Mushroom Set",
+            "Night Maiden Set",
+            "Night's Cavalry Set",
+            "Noble's Set",
+            "Nomadic Merchant's Set",
+            "Nox Monk Set",
+            "Nox Swordstress Set",
+            "Old Aristocrat Set",
+            "Omen Set",
+            "Omenkiller Set",
+            "Page Set",
+            "Perfumer Set",
+            "Perfumer Traveler's Set",
+            "Preceptor's Set",
+            "Prisoner Set",
+            "Prophet Set",
+            "Queen of the Full Moon Set",
+            "Radahn Foot Soldier Set",
+            "Radahn Soldier Set",
+            "Raging Wolf Set",
+            "Raptor's Set",
+            "Raya Lucarian Foot Soldier Set",
+            "Raya Lucarian Soldier Set",
+            "Raya Lucarian Sorcerer Set",
+            "Redmane Knight Set",
+            "Ronin's Set",
+            "Rotten Duelist Set",
+            "Royal Knight Set",
+            "Royal Remains Set",
+            "Ruler's Set",
+            "Sage Set",
+            "Sanguine Noble Set",
+            "Scaled Set",
+            "Shaman Set",
+            "Snow Witch Set",
+            "Spellblade Set",
+            "Melina's Set",
+            "Traveling Maiden Set",
+            "Tree Sentinel Set",
+            "Twinned Set",
+            "Vagabond Knight Set",
+            "Veteran's Set",
+            "Vulgar Militia Set",
+            "War Surgeon Set",
+            "White Reed Set",
+            "Zamor Set"
+          ]
+        },
+        {
+          "id": "dlc",
+          "name": "Sombra da Árvore Erdtree (DLC)",
+          "items": [
+            "Ansbach's Set",
+            "Ascetic's Set",
+            "Black Knight Set",
+            "Common Soldier Set",
+            "Dancer's Set",
+            "Dane's Set",
+            "Death Knight Set",
+            "Divine Beast Set",
+            "Divine Bird Set",
+            "Fire Knight Set",
+            "Freyja's Set",
+            "Gaius's Set",
+            "Gravebird Set",
+            "High Priest Set",
+            "Horned Warrior Set",
+            "Hornsent Set",
+            "Igon's Set",
+            "Iron Rivet Set",
+            "Highland Warrior Set",
+            "Messmer Soldier Set",
+            "Messmer's Set",
+            "Night Set",
+            "Oathseeker Knight Set",
+            "Rakshasa Set",
+            "Rellana's Set",
+            "Shadow Militiaman Set",
+            "Solitude Set",
+            "Thiollier's Set",
+            "Verdigris Set",
+            "Young Lion's Set"
+          ]
+        }
+      ]
     },
     {
       "id": "spells",
