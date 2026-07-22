@@ -77,6 +77,7 @@ function allItemsForLeaf(leafKey, leaf, catId) {
         const pieceName = (slot.id === 'helm' && setObj.helm) ? setObj.helm
           : (slot.id === 'chest' && setObj.chest) ? setObj.chest
           : (slot.id === 'gauntlets' && setObj.gauntlets) ? setObj.gauntlets
+          : (slot.id === 'legs' && setObj.legs) ? setObj.legs
           : null;
         built.push({
           id: leafKey + '-' + i + '-' + slot.id,
@@ -214,6 +215,7 @@ function renderContent() {
         const pieceName = (slot.id === 'helm' && setObj.helm) ? setObj.helm
           : (slot.id === 'chest' && setObj.chest) ? setObj.chest
           : (slot.id === 'gauntlets' && setObj.gauntlets) ? setObj.gauntlets
+          : (slot.id === 'legs' && setObj.legs) ? setObj.legs
           : null;
         const slotLabel = slot[langCode];
         return '<div class="apiece ' + (isChecked ? 'checked' : '') + '" data-id="' + pieceId + '">'
