@@ -867,7 +867,7 @@
             {
               "name": "Confessor Set",
               "helm": "Confessor Hood",
-              "chest": null,
+              "chest": "Confessor Armor",
               "gauntlets": "Confessor Gloves",
               "legs": "Confessor Boots"
             },
@@ -881,7 +881,7 @@
             {
               "name": "Crucible Axe Set",
               "helm": "Crucible Axe Helm",
-              "chest": null,
+              "chest": "Crucible Axe Armor",
               "gauntlets": "Crucible Gauntlets",
               "legs": "Crucible Greaves"
             },
@@ -1155,8 +1155,8 @@
               "name": "Lazuli Sorcerer Set",
               "helm": "Lazuli Glintstone Crown",
               "chest": "Lazuli Robe",
-              "gauntlets": null,
-              "legs": null
+              "gauntlets": "Sorcerer Manchettes",
+              "legs": "Sorcerer Leggings"
             },
             {
               "name": "Leather Set",
@@ -1210,7 +1210,7 @@
             {
               "name": "Malformed Dragon Set",
               "helm": "Malformed Dragon Helm",
-              "chest": null,
+              "chest": "Malformed Dragon Armor",
               "gauntlets": "Malformed Dragon Gauntlets",
               "legs": "Malformed Dragon Greaves"
             },
@@ -1349,14 +1349,14 @@
             },
             {
               "name": "Preceptor's Set",
-              "helm": null,
+              "helm": "Preceptor's Big Hat",
               "chest": "Preceptor's Long Gown",
               "gauntlets": "Preceptor's Gloves",
               "legs": "Preceptor's Trousers"
             },
             {
               "name": "Prisoner Set",
-              "helm": null,
+              "helm": "Prisoner Iron Mask",
               "chest": "Prisoner Clothing",
               "gauntlets": null,
               "legs": "Prisoner Trousers"
@@ -1448,7 +1448,7 @@
             {
               "name": "Royal Knight Set",
               "helm": "Royal Knight Helm",
-              "chest": null,
+              "chest": "Royal Knight Armor",
               "gauntlets": "Royal Knight Gauntlets",
               "legs": "Royal Knight Greaves"
             },
@@ -1476,7 +1476,7 @@
             {
               "name": "Sanguine Noble Set",
               "helm": "Sanguine Noble Hood",
-              "chest": null,
+              "chest": "Sanguine Noble Robe",
               "gauntlets": null,
               "legs": "Sanguine Noble Waistcloth"
             },
@@ -1497,7 +1497,7 @@
             {
               "name": "Snow Witch Set",
               "helm": "Snow Witch Hat",
-              "chest": null,
+              "chest": "Snow Witch Robe",
               "gauntlets": null,
               "legs": "Snow Witch Skirt"
             },
@@ -1567,7 +1567,7 @@
             {
               "name": "White Reed Set",
               "helm": "White Mask",
-              "chest": null,
+              "chest": "White Reed Armor",
               "gauntlets": "White Reed Gauntlets",
               "legs": "White Reed Greaves"
             },
@@ -1615,7 +1615,7 @@
             {
               "name": "Dancer's Set",
               "helm": "Dancer's Hood",
-              "chest": null,
+              "chest": "Dancer's Dress",
               "gauntlets": "Dancer's Bracer",
               "legs": "Dancer's Trousers"
             },
@@ -1629,7 +1629,7 @@
             {
               "name": "Death Knight Set",
               "helm": "Death Mask Helm",
-              "chest": null,
+              "chest": "Death Knight Armor",
               "gauntlets": "Death Knight Gauntlets",
               "legs": "Death Knight Greaves"
             },
@@ -1659,7 +1659,7 @@
               "helm": "Freyja's Helm",
               "chest": "Freyja's Armor",
               "gauntlets": null,
-              "legs": null
+              "legs": "Freyja's Greaves"
             },
             {
               "name": "Gaius's Set",
@@ -1701,7 +1701,7 @@
               "helm": "Igon's Helm",
               "chest": "Igon's Armor",
               "gauntlets": null,
-              "legs": null
+              "legs": "Igon's Loincloth"
             },
             {
               "name": "Iron Rivet Set",
@@ -1743,7 +1743,7 @@
               "helm": "Oathseeker Knight Helm",
               "chest": "Oathseeker Knight Armor",
               "gauntlets": null,
-              "legs": null
+              "legs": "Oathseeker Knight Greaves"
             },
             {
               "name": "Rakshasa Set",
@@ -1783,7 +1783,7 @@
             {
               "name": "Verdigris Set",
               "helm": "Verdigris Helm",
-              "chest": null,
+              "chest": "Verdigris Armor",
               "gauntlets": null,
               "legs": null
             },
@@ -1792,7 +1792,7 @@
               "helm": "Young Lion's Helm",
               "chest": null,
               "gauntlets": null,
-              "legs": null
+              "legs": "Young Lion's Greaves"
             }
           ]
         }
