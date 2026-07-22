@@ -22,12 +22,21 @@ const TROPHY_IMAGE_FILES = [
 
 const STATE_KEY = 'er-checklist-checked';
 const CUSTOM_KEY = 'er-checklist-custom';
+const EXPANDED_KEY = 'er-checklist-expanded';
 
 let LANG_DATA = null;
 let checked = {};
 let custom = {};
+let expanded = {};
 let activeCat = null;
 let activeSubcat = null;
+
+const PIECE_SLOTS = [
+  { id: 'helm', pt: 'Elmo', en: 'Helm' },
+  { id: 'chest', pt: 'Peitoral', en: 'Chest Armor' },
+  { id: 'gauntlets', pt: 'Braçadeiras', en: 'Gauntlets' },
+  { id: 'legs', pt: 'Grevas', en: 'Leg Armor' },
+];
 
 function loadLocalState() {
   try {
@@ -60,14 +69,33 @@ function leavesOf(cat) {
 }
 
 function allItemsForLeaf(leafKey, leaf, catId) {
-  const built = (leaf.items || []).map((name, i) => ({
-    id: leafKey + '-' + i,
-    name,
-    custom: false,
-    img: (catId === 'trophies' && TROPHY_IMAGE_FILES[i])
-      ? 'img/trophies/' + TROPHY_IMAGE_FILES[i]
-      : null,
-  }));
+  let built;
+  if (catId === 'armor') {
+    built = [];
+    (leaf.items || []).forEach((setObj, i) => {
+      PIECE_SLOTS.forEach(slot => {
+        const pieceName = (slot.id === 'helm' && setObj.helm) ? setObj.helm : null;
+        built.push({
+          id: leafKey + '-' + i + '-' + slot.id,
+          setIndex: i,
+          setName: setObj.name,
+          slot: slot.id,
+          pieceName,
+          custom: false,
+          img: null,
+        });
+      });
+    });
+  } else {
+    built = (leaf.items || []).map((name, i) => ({
+      id: leafKey + '-' + i,
+      name,
+      custom: false,
+      img: (catId === 'trophies' && TROPHY_IMAGE_FILES[i])
+        ? 'img/trophies/' + TROPHY_IMAGE_FILES[i]
+        : null,
+    }));
+  }
   const extra = (custom[leafKey] || []).map(it => ({
     id: it.id, name: it.name, custom: true, img: null,
   }));
@@ -157,11 +185,54 @@ function renderContent() {
   const done = items.filter(it => checked[it.id]).length;
   const content = document.getElementById('content');
   const isTable = cat.id === 'trophies';
+  const isArmor = cat.id === 'armor';
+  const langCode = (LangModule.getCurrentCode() || 'pt-BR').startsWith('pt') ? 'pt' : 'en';
 
   let listHtml;
 
   if (items.length === 0) {
     listHtml = '<p class="empty-note">' + escapeHtml(ui.emptyNote || 'Em construção — em breve.') + '</p>';
+  } else if (isArmor) {
+    const setsRaw = leaf.items || [];
+    const rows = setsRaw.map((setObj, i) => {
+      const expKey = leafKey + '-' + i;
+      const isOpen = !!expanded[expKey];
+      let setDone = 0;
+      const pieceRows = PIECE_SLOTS.map(slot => {
+        const pieceId = leafKey + '-' + i + '-' + slot.id;
+        const isChecked = !!checked[pieceId];
+        if (isChecked) setDone++;
+        const pieceName = (slot.id === 'helm' && setObj.helm) ? setObj.helm : null;
+        const slotLabel = slot[langCode];
+        return '<div class="apiece ' + (isChecked ? 'checked' : '') + '" data-id="' + pieceId + '">'
+          + '<div class="seal small"></div>'
+          + '<div class="apiece-text">'
+            + '<span class="apiece-slot">' + escapeHtml(slotLabel) + '</span>'
+            + (pieceName
+                ? '<span class="apiece-name">' + escapeHtml(pieceName) + '</span>'
+                : '<span class="apiece-name pending">' + escapeHtml(langCode === 'pt' ? 'nome exato pendente' : 'exact name pending') + '</span>')
+          + '</div>'
+        + '</div>';
+      }).join('');
+      return '<div class="aset ' + (isOpen ? 'open' : '') + '">'
+        + '<div class="aset-header" data-exp="' + expKey + '">'
+          + '<span class="aset-chevron">▸</span>'
+          + '<span class="aset-name">' + escapeHtml(setObj.name) + '</span>'
+          + '<span class="aset-count">' + setDone + '/4</span>'
+        + '</div>'
+        + '<div class="aset-body">' + pieceRows + '</div>'
+      + '</div>';
+    }).join('');
+    const customExtra = (custom[leafKey] || []);
+    const customHtml = customExtra.length ? '<div class="grid">' + customExtra.map(it => {
+      const isChecked = !!checked[it.id];
+      return '<div class="item ' + (isChecked ? 'checked' : '') + '" data-id="' + it.id + '">'
+        + '<div class="seal"></div>'
+        + '<div class="item-text"><span class="name">' + escapeHtml(it.name) + '</span></div>'
+        + '<button class="rm-btn" data-remove="' + it.id + '" title="' + escapeHtml(ui.removeTitle) + '">✕</button>'
+        + '</div>';
+    }).join('') + '</div>' : '';
+    listHtml = '<div class="aset-list">' + rows + '</div>' + customHtml;
   } else if (isTable) {
     const rows = items.map(it => {
       const isChecked = !!checked[it.id];
@@ -197,10 +268,17 @@ function renderContent() {
     + listHtml
     + '<div class="add-row"><input type="text" id="addInput" placeholder="' + escapeHtml(ui.addPlaceholder) + '"/><button id="addBtn">' + escapeHtml(ui.addBtn) + '</button></div>';
 
-  content.querySelectorAll('.item, .trow').forEach(el => {
+  content.querySelectorAll('.item, .trow, .apiece').forEach(el => {
     el.addEventListener('click', (e) => {
       if (e.target.closest('.rm-btn')) return;
       toggleItem(el.getAttribute('data-id'));
+    });
+  });
+  content.querySelectorAll('.aset-header').forEach(el => {
+    el.addEventListener('click', () => {
+      const key = el.getAttribute('data-exp');
+      expanded[key] = !expanded[key];
+      renderContent();
     });
   });
   content.querySelectorAll('[data-remove]').forEach(el => {

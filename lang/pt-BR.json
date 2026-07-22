@@ -683,175 +683,646 @@
     {
       "id": "armor",
       "name": "Armaduras",
-      "desc": "Lista completa de sets de armadura (118 do jogo base + 29 do DLC), reunida a partir da galeria oficial da wiki. Marque quando obtiver ao menos uma peça do set.",
+      "desc": "Clique num set para ver as 4 peças (Elmo, Peitoral, Braçadeiras, Grevas) e marcar individualmente. Os nomes de Elmo já foram verificados por fonte oficial; as outras 3 peças ainda mostram apenas o nome do set até serem verificadas.",
       "subcategories": [
         {
           "id": "base",
           "name": "Jogo Base",
           "items": [
-            "Alberich's Set",
-            "Albinauric Set",
-            "All-Knowing Set",
-            "Aristocrat Set",
-            "Astrologer Set",
-            "Azur's Glintstone Set",
-            "Bandit Set",
-            "Banished Knight Set",
-            "Battlemage Set",
-            "Beast Champion Set",
-            "Black Knife Set",
-            "Blackflame Monk Set",
-            "Blaidd's Set",
-            "Bloodhound Knight Set",
-            "Bloodsoaked Set",
-            "Blue Cloth Set",
-            "Blue Festive Set",
-            "Blue Silver Set",
-            "Briar Set",
-            "Bull-Goat Set",
-            "Carian Knight Set",
-            "Chain Set",
-            "Champion Set",
-            "Cleanrot Set",
-            "Commoner's Set",
-            "Confessor Set",
-            "Consort's Set",
-            "Crucible Axe Set",
-            "Crucible Tree Set",
-            "Cuckoo Knight Set",
-            "Depraved Perfumer Set",
-            "Drake Knight Set",
-            "Duelist Set",
-            "Eccentric Set",
-            "Elden Lord Set",
-            "Errant Sorcerer Set",
-            "Exile Set",
-            "Festive Set",
-            "Fia's Set",
-            "Finger Maiden Set",
-            "Fingerprint Set",
-            "Fire Monk Set",
-            "Fire Prelate Set",
-            "Fur Set",
-            "Gelmir Knight Set",
-            "General Radahn Set",
-            "Godrick Foot Soldier Set",
-            "Godrick Knight Set",
-            "Godrick Soldier Set",
-            "Godskin Apostle Set",
-            "Godskin Noble Set",
-            "Goldmask's Set",
-            "Guardian Set",
-            "Guilty Set",
-            "Haligtree Foot Soldier Set",
-            "Haligtree Knight Set",
-            "Haligtree Soldier Set",
-            "High Page Set",
-            "Highwayman Set",
-            "Hoslow's Set",
-            "House Marais Set",
-            "Iron Set",
-            "Juvenile Scholar Set",
-            "Kaiden Set",
-            "Knight Set",
-            "Land of Reeds Set",
-            "Lazuli Sorcerer Set",
-            "Leather Set",
-            "Leyndell Foot Soldier Set",
-            "Leyndell Knight Set",
-            "Leyndell Soldier Set",
-            "Lionel's Set",
-            "Lusat's Set",
-            "Malenia's Set",
-            "Malformed Dragon Set",
-            "Maliketh's Set",
-            "Marionette Soldier Set",
-            "Mausoleum Foot Soldier Set",
-            "Mausoleum Knight Set",
-            "Mausoleum Soldier Set",
-            "Millicent's Set",
-            "Mushroom Set",
-            "Night Maiden Set",
-            "Night's Cavalry Set",
-            "Noble's Set",
-            "Nomadic Merchant's Set",
-            "Nox Monk Set",
-            "Nox Swordstress Set",
-            "Old Aristocrat Set",
-            "Omen Set",
-            "Omenkiller Set",
-            "Page Set",
-            "Perfumer Set",
-            "Perfumer Traveler's Set",
-            "Preceptor's Set",
-            "Prisoner Set",
-            "Prophet Set",
-            "Queen of the Full Moon Set",
-            "Radahn Foot Soldier Set",
-            "Radahn Soldier Set",
-            "Raging Wolf Set",
-            "Raptor's Set",
-            "Raya Lucarian Foot Soldier Set",
-            "Raya Lucarian Soldier Set",
-            "Raya Lucarian Sorcerer Set",
-            "Redmane Knight Set",
-            "Ronin's Set",
-            "Rotten Duelist Set",
-            "Royal Knight Set",
-            "Royal Remains Set",
-            "Ruler's Set",
-            "Sage Set",
-            "Sanguine Noble Set",
-            "Scaled Set",
-            "Shaman Set",
-            "Snow Witch Set",
-            "Spellblade Set",
-            "Melina's Set",
-            "Traveling Maiden Set",
-            "Tree Sentinel Set",
-            "Twinned Set",
-            "Vagabond Knight Set",
-            "Veteran's Set",
-            "Vulgar Militia Set",
-            "War Surgeon Set",
-            "White Reed Set",
-            "Zamor Set"
+            {
+              "name": "Alberich's Set",
+              "helm": "Alberich's Pointed Hat"
+            },
+            {
+              "name": "Albinauric Set",
+              "helm": "Albinauric Mask"
+            },
+            {
+              "name": "All-Knowing Set",
+              "helm": "All-Knowing Helm"
+            },
+            {
+              "name": "Aristocrat Set",
+              "helm": "Aristocrat Hat"
+            },
+            {
+              "name": "Astrologer Set",
+              "helm": "Astrologer Hood"
+            },
+            {
+              "name": "Azur's Glintstone Set",
+              "helm": "Azur's Glintstone Crown"
+            },
+            {
+              "name": "Bandit Set",
+              "helm": "Bandit Mask"
+            },
+            {
+              "name": "Banished Knight Set",
+              "helm": "Banished Knight Helm"
+            },
+            {
+              "name": "Battlemage Set",
+              "helm": null
+            },
+            {
+              "name": "Beast Champion Set",
+              "helm": "Beast Champion Helm"
+            },
+            {
+              "name": "Black Knife Set",
+              "helm": "Black Dumpling"
+            },
+            {
+              "name": "Blackflame Monk Set",
+              "helm": "Blackflame Monk Hood"
+            },
+            {
+              "name": "Blaidd's Set",
+              "helm": null
+            },
+            {
+              "name": "Bloodhound Knight Set",
+              "helm": "Bloodhound Knight Helm"
+            },
+            {
+              "name": "Bloodsoaked Set",
+              "helm": "Bloodsoaked Mask"
+            },
+            {
+              "name": "Blue Cloth Set",
+              "helm": "Blue Cloth Cowl"
+            },
+            {
+              "name": "Blue Festive Set",
+              "helm": "Blue Cloth Cowl"
+            },
+            {
+              "name": "Blue Silver Set",
+              "helm": "Blue Cloth Cowl"
+            },
+            {
+              "name": "Briar Set",
+              "helm": "Briar Helm"
+            },
+            {
+              "name": "Bull-Goat Set",
+              "helm": "Bull-Goat Helm"
+            },
+            {
+              "name": "Carian Knight Set",
+              "helm": "Carian Knight Helm"
+            },
+            {
+              "name": "Chain Set",
+              "helm": "Chain Coif"
+            },
+            {
+              "name": "Champion Set",
+              "helm": "Beast Champion Helm"
+            },
+            {
+              "name": "Cleanrot Set",
+              "helm": "Cleanrot Helm"
+            },
+            {
+              "name": "Commoner's Set",
+              "helm": "Commoner's Headband"
+            },
+            {
+              "name": "Confessor Set",
+              "helm": "Confessor Hood"
+            },
+            {
+              "name": "Consort's Set",
+              "helm": "Consort's Mask"
+            },
+            {
+              "name": "Crucible Axe Set",
+              "helm": "Crucible Axe Helm"
+            },
+            {
+              "name": "Crucible Tree Set",
+              "helm": "Crucible Axe Helm"
+            },
+            {
+              "name": "Cuckoo Knight Set",
+              "helm": "Cuckoo Knight Helm"
+            },
+            {
+              "name": "Depraved Perfumer Set",
+              "helm": "Depraved Perfumer Headscarf"
+            },
+            {
+              "name": "Drake Knight Set",
+              "helm": "Drake Knight Helm"
+            },
+            {
+              "name": "Duelist Set",
+              "helm": "Rotten Duelist Helm"
+            },
+            {
+              "name": "Eccentric Set",
+              "helm": null
+            },
+            {
+              "name": "Elden Lord Set",
+              "helm": null
+            },
+            {
+              "name": "Errant Sorcerer Set",
+              "helm": null
+            },
+            {
+              "name": "Exile Set",
+              "helm": null
+            },
+            {
+              "name": "Festive Set",
+              "helm": "Blue Festive Hood"
+            },
+            {
+              "name": "Fia's Set",
+              "helm": null
+            },
+            {
+              "name": "Finger Maiden Set",
+              "helm": null
+            },
+            {
+              "name": "Fingerprint Set",
+              "helm": null
+            },
+            {
+              "name": "Fire Monk Set",
+              "helm": "Fire Prelate Helm"
+            },
+            {
+              "name": "Fire Prelate Set",
+              "helm": "Fire Prelate Helm"
+            },
+            {
+              "name": "Fur Set",
+              "helm": null
+            },
+            {
+              "name": "Gelmir Knight Set",
+              "helm": "Gelmir Knight Helm"
+            },
+            {
+              "name": "General Radahn Set",
+              "helm": null
+            },
+            {
+              "name": "Godrick Foot Soldier Set",
+              "helm": "Godrick Knight Helm"
+            },
+            {
+              "name": "Godrick Knight Set",
+              "helm": "Godrick Knight Helm"
+            },
+            {
+              "name": "Godrick Soldier Set",
+              "helm": "Godrick Knight Helm"
+            },
+            {
+              "name": "Godskin Apostle Set",
+              "helm": "Godskin Apostle Hood"
+            },
+            {
+              "name": "Godskin Noble Set",
+              "helm": "Godskin Apostle Hood"
+            },
+            {
+              "name": "Goldmask's Set",
+              "helm": null
+            },
+            {
+              "name": "Guardian Set",
+              "helm": "Guardian Mask"
+            },
+            {
+              "name": "Guilty Set",
+              "helm": "Guilty Hood"
+            },
+            {
+              "name": "Haligtree Foot Soldier Set",
+              "helm": "Haligtree Helm"
+            },
+            {
+              "name": "Haligtree Knight Set",
+              "helm": "Haligtree Helm"
+            },
+            {
+              "name": "Haligtree Soldier Set",
+              "helm": "Haligtree Helm"
+            },
+            {
+              "name": "High Page Set",
+              "helm": "High Page Hood"
+            },
+            {
+              "name": "Highwayman Set",
+              "helm": "Highwayman Hood"
+            },
+            {
+              "name": "Hoslow's Set",
+              "helm": "Hoslow's Helm"
+            },
+            {
+              "name": "House Marais Set",
+              "helm": null
+            },
+            {
+              "name": "Iron Set",
+              "helm": "Blackguard's Iron Mask"
+            },
+            {
+              "name": "Juvenile Scholar Set",
+              "helm": "Juvenile Scholar Cap"
+            },
+            {
+              "name": "Kaiden Set",
+              "helm": "Kaiden Helm"
+            },
+            {
+              "name": "Knight Set",
+              "helm": "Banished Knight Helm"
+            },
+            {
+              "name": "Land of Reeds Set",
+              "helm": "Land of Reeds Helm"
+            },
+            {
+              "name": "Lazuli Sorcerer Set",
+              "helm": "Lazuli Glintstone Crown"
+            },
+            {
+              "name": "Leather Set",
+              "helm": "Brave's Leather Helm"
+            },
+            {
+              "name": "Leyndell Foot Soldier Set",
+              "helm": "Leyndell Knight Helm"
+            },
+            {
+              "name": "Leyndell Knight Set",
+              "helm": "Leyndell Knight Helm"
+            },
+            {
+              "name": "Leyndell Soldier Set",
+              "helm": "Leyndell Knight Helm"
+            },
+            {
+              "name": "Lionel's Set",
+              "helm": "Lionel's Helm"
+            },
+            {
+              "name": "Lusat's Set",
+              "helm": "Lusat's Glintstone Crown"
+            },
+            {
+              "name": "Malenia's Set",
+              "helm": "Malenia's Winged Helm"
+            },
+            {
+              "name": "Malformed Dragon Set",
+              "helm": "Malformed Dragon Helm"
+            },
+            {
+              "name": "Maliketh's Set",
+              "helm": "Maliketh's Helm"
+            },
+            {
+              "name": "Marionette Soldier Set",
+              "helm": "Marionette Soldier Birdhelm"
+            },
+            {
+              "name": "Mausoleum Foot Soldier Set",
+              "helm": null
+            },
+            {
+              "name": "Mausoleum Knight Set",
+              "helm": null
+            },
+            {
+              "name": "Mausoleum Soldier Set",
+              "helm": null
+            },
+            {
+              "name": "Millicent's Set",
+              "helm": null
+            },
+            {
+              "name": "Mushroom Set",
+              "helm": "Mushroom Crown"
+            },
+            {
+              "name": "Night Maiden Set",
+              "helm": "Banished Knight Helm"
+            },
+            {
+              "name": "Night's Cavalry Set",
+              "helm": "Night's Cavalry Helm"
+            },
+            {
+              "name": "Noble's Set",
+              "helm": null
+            },
+            {
+              "name": "Nomadic Merchant's Set",
+              "helm": "Nomadic Merchant's Chapeau"
+            },
+            {
+              "name": "Nox Monk Set",
+              "helm": "Nox Mirrorhelm"
+            },
+            {
+              "name": "Nox Swordstress Set",
+              "helm": "Nox Mirrorhelm"
+            },
+            {
+              "name": "Old Aristocrat Set",
+              "helm": "Foot Soldier Cap"
+            },
+            {
+              "name": "Omen Set",
+              "helm": "Omen Helm"
+            },
+            {
+              "name": "Omenkiller Set",
+              "helm": null
+            },
+            {
+              "name": "Page Set",
+              "helm": "High Page Hood"
+            },
+            {
+              "name": "Perfumer Set",
+              "helm": "Depraved Perfumer Headscarf"
+            },
+            {
+              "name": "Perfumer Traveler's Set",
+              "helm": "Depraved Perfumer Headscarf"
+            },
+            {
+              "name": "Preceptor's Set",
+              "helm": null
+            },
+            {
+              "name": "Prisoner Set",
+              "helm": null
+            },
+            {
+              "name": "Prophet Set",
+              "helm": null
+            },
+            {
+              "name": "Queen of the Full Moon Set",
+              "helm": null
+            },
+            {
+              "name": "Radahn Foot Soldier Set",
+              "helm": "Radahn's Redmane Helm"
+            },
+            {
+              "name": "Radahn Soldier Set",
+              "helm": "Radahn's Redmane Helm"
+            },
+            {
+              "name": "Raging Wolf Set",
+              "helm": "Raging Wolf Helm"
+            },
+            {
+              "name": "Raptor's Set",
+              "helm": null
+            },
+            {
+              "name": "Raya Lucarian Foot Soldier Set",
+              "helm": "Raya Lucarian Helm"
+            },
+            {
+              "name": "Raya Lucarian Soldier Set",
+              "helm": "Raya Lucarian Helm"
+            },
+            {
+              "name": "Raya Lucarian Sorcerer Set",
+              "helm": "Raya Lucarian Helm"
+            },
+            {
+              "name": "Redmane Knight Set",
+              "helm": "Radahn's Redmane Helm"
+            },
+            {
+              "name": "Ronin's Set",
+              "helm": null
+            },
+            {
+              "name": "Rotten Duelist Set",
+              "helm": "Rotten Duelist Helm"
+            },
+            {
+              "name": "Royal Knight Set",
+              "helm": "Royal Knight Helm"
+            },
+            {
+              "name": "Royal Remains Set",
+              "helm": "Royal Knight Helm"
+            },
+            {
+              "name": "Ruler's Set",
+              "helm": "Ruler's Mask"
+            },
+            {
+              "name": "Sage Set",
+              "helm": "Sage Hood"
+            },
+            {
+              "name": "Sanguine Noble Set",
+              "helm": "Sanguine Noble Hood"
+            },
+            {
+              "name": "Scaled Set",
+              "helm": "Scaled Helm"
+            },
+            {
+              "name": "Shaman Set",
+              "helm": null
+            },
+            {
+              "name": "Snow Witch Set",
+              "helm": "Snow Witch Hat"
+            },
+            {
+              "name": "Spellblade Set",
+              "helm": "Spellblade's Pointed Hat"
+            },
+            {
+              "name": "Melina's Set",
+              "helm": null
+            },
+            {
+              "name": "Traveling Maiden Set",
+              "helm": "Traveling Maiden Hood"
+            },
+            {
+              "name": "Tree Sentinel Set",
+              "helm": "Crucible Tree Helm"
+            },
+            {
+              "name": "Twinned Set",
+              "helm": "Twinned Helm"
+            },
+            {
+              "name": "Vagabond Knight Set",
+              "helm": "Vagabond Knight Helm"
+            },
+            {
+              "name": "Veteran's Set",
+              "helm": "Veteran's Helm"
+            },
+            {
+              "name": "Vulgar Militia Set",
+              "helm": "Vulgar Militia Helm"
+            },
+            {
+              "name": "War Surgeon Set",
+              "helm": "Ash-of-War Scarab"
+            },
+            {
+              "name": "White Reed Set",
+              "helm": "White Mask"
+            },
+            {
+              "name": "Zamor Set",
+              "helm": null
+            }
           ]
         },
         {
           "id": "dlc",
           "name": "Sombra da Árvore Erdtree (DLC)",
           "items": [
-            "Ansbach's Set",
-            "Ascetic's Set",
-            "Black Knight Set",
-            "Common Soldier Set",
-            "Dancer's Set",
-            "Dane's Set",
-            "Death Knight Set",
-            "Divine Beast Set",
-            "Divine Bird Set",
-            "Fire Knight Set",
-            "Freyja's Set",
-            "Gaius's Set",
-            "Gravebird Set",
-            "High Priest Set",
-            "Horned Warrior Set",
-            "Hornsent Set",
-            "Igon's Set",
-            "Iron Rivet Set",
-            "Highland Warrior Set",
-            "Messmer Soldier Set",
-            "Messmer's Set",
-            "Night Set",
-            "Oathseeker Knight Set",
-            "Rakshasa Set",
-            "Rellana's Set",
-            "Shadow Militiaman Set",
-            "Solitude Set",
-            "Thiollier's Set",
-            "Verdigris Set",
-            "Young Lion's Set"
+            {
+              "name": "Ansbach's Set",
+              "helm": null
+            },
+            {
+              "name": "Ascetic's Set",
+              "helm": null
+            },
+            {
+              "name": "Black Knight Set",
+              "helm": "Black Dumpling"
+            },
+            {
+              "name": "Common Soldier Set",
+              "helm": "Commoner's Headband"
+            },
+            {
+              "name": "Dancer's Set",
+              "helm": "Dancer's Hood"
+            },
+            {
+              "name": "Dane's Set",
+              "helm": "Dane's Hat"
+            },
+            {
+              "name": "Death Knight Set",
+              "helm": "Death Mask Helm"
+            },
+            {
+              "name": "Divine Beast Set",
+              "helm": "Divine Beast Helm"
+            },
+            {
+              "name": "Divine Bird Set",
+              "helm": "Divine Beast Helm"
+            },
+            {
+              "name": "Fire Knight Set",
+              "helm": "Fire Prelate Helm"
+            },
+            {
+              "name": "Freyja's Set",
+              "helm": "Freyja's Helm"
+            },
+            {
+              "name": "Gaius's Set",
+              "helm": "Gaius's Helm"
+            },
+            {
+              "name": "Gravebird Set",
+              "helm": "Gravebird Helm"
+            },
+            {
+              "name": "High Priest Set",
+              "helm": "High Page Hood"
+            },
+            {
+              "name": "Horned Warrior Set",
+              "helm": "Great Horned Headband"
+            },
+            {
+              "name": "Hornsent Set",
+              "helm": null
+            },
+            {
+              "name": "Igon's Set",
+              "helm": "Igon's Helm"
+            },
+            {
+              "name": "Iron Rivet Set",
+              "helm": "Blackguard's Iron Mask"
+            },
+            {
+              "name": "Highland Warrior Set",
+              "helm": null
+            },
+            {
+              "name": "Messmer Soldier Set",
+              "helm": "Messmer Soldier Helm"
+            },
+            {
+              "name": "Messmer's Set",
+              "helm": "Messmer's Helm"
+            },
+            {
+              "name": "Night Set",
+              "helm": "Banished Knight Helm"
+            },
+            {
+              "name": "Oathseeker Knight Set",
+              "helm": "Oathseeker Knight Helm"
+            },
+            {
+              "name": "Rakshasa Set",
+              "helm": "Rakshasa Helm"
+            },
+            {
+              "name": "Rellana's Set",
+              "helm": "Rellana's Helm"
+            },
+            {
+              "name": "Shadow Militiaman Set",
+              "helm": "Shadow Militiaman Helm"
+            },
+            {
+              "name": "Solitude Set",
+              "helm": "Helm of Solitude"
+            },
+            {
+              "name": "Thiollier's Set",
+              "helm": "Thiollier's Mask"
+            },
+            {
+              "name": "Verdigris Set",
+              "helm": "Verdigris Helm"
+            },
+            {
+              "name": "Young Lion's Set",
+              "helm": "Young Lion's Helm"
+            }
           ]
         }
       ]
