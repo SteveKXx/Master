@@ -405,64 +405,93 @@
           "items": [
             "Flail",
             "Nightrider Flail",
-            "Chainlink Flail"
+            "Chainlink Flail",
+            "Family Heads",
+            "Serpent Flail",
+            "Bastard's Stars"
           ]
         },
         {
           "id": "great_hammers",
           "name": "Martelos Grandes",
           "items": [
-            "Great Club",
-            "Brick Hammer",
-            "Giant-Crusher",
+            "Large Club",
+            "Curved Great Club",
             "Great Mace",
-            "Troll's Hammer",
-            "Devourer's Scepter",
-            "Prelate's Inferno Crozier",
+            "Pickaxe",
+            "Brick Hammer",
+            "Battle Hammer",
+            "Rotten Battle Hammer",
+            "Celebrant's Skull",
+            "Great Stars",
             "Black Steel Greathammer",
-            "Smithscript Greathammer"
+            "Smithscript Greathammer",
+            "Greathorn Hammer",
+            "Envoy's Long Horn",
+            "Cranial Vessel Candlestand",
+            "Beastclaw Greathammer",
+            "Devourer's Scepter"
           ]
         },
         {
           "id": "colossal_weapons",
           "name": "Armas Colossais",
           "items": [
-            "Envoy's Long Horn",
-            "Wraith Calling Bell",
-            "Duelist Greataxe",
-            "Zweihander (Colossal)",
-            "Rotten Staff"
+            "Anvil Hammer",
+            "Bloodfiend's Arm",
+            "Devonia's Hammer",
+            "Envoy's Greathorn",
+            "Fallingstar Beast Jaw",
+            "Gazing Finger",
+            "Giant-Crusher",
+            "Great Club",
+            "Prelate's Inferno Crozier",
+            "Rotten Staff",
+            "Shadow Sunflower Blossom",
+            "Staff of the Avatar",
+            "Troll's Hammer",
+            "Watchdog's Staff"
           ]
         },
         {
           "id": "spears",
           "name": "Lanças",
           "items": [
-            "Spear",
             "Short Spear",
+            "Iron Spear",
+            "Spear",
             "Partisan",
             "Pike",
-            "Lance",
-            "Iron Spear",
-            "Cross-Naginata",
-            "Celebrant's Rib-Rake",
+            "Swift Spear",
             "Spiked Spear",
-            "Rotten Crystal Spear",
+            "Cross-Naginata",
             "Clayman's Harpoon",
-            "Crystal Spear"
+            "Bloodfiend's Fork",
+            "Celebrant's Rib-Rake",
+            "Torchpole",
+            "Smithscript Spear",
+            "Inquisitor's Girandole",
+            "Crystal Spear",
+            "Rotten Crystal Spear",
+            "Cleanrot Spear",
+            "Death Ritual Spear",
+            "Bolt of Gransax"
           ]
         },
         {
           "id": "great_spears",
           "name": "Grandes Lanças",
           "items": [
-            "Serpent-Hunter",
-            "Cleanrot Spear",
-            "Vyke's War Spear",
-            "Siluria's Tree",
+            "Lance",
+            "Messmer Soldier's Spear",
             "Treespear",
-            "Bolt of Gransax",
-            "Mohgwyn's Sacred Spear"
+            "Serpent-Hunter",
+            "Siluria's Tree",
+            "Vyke's War Spear",
+            "Barbed Staff-Spear",
+            "Bloodfiend's Sacred Spear",
+            "Mohgwyn's Sacred Spear",
+            "Spear of the Impaler"
           ]
         },
         {
@@ -470,17 +499,23 @@
           "name": "Alabardas",
           "items": [
             "Halberd",
-            "Glaive",
-            "Golden Halberd",
-            "Guardian's Swordspear",
             "Banished Knight's Halberd",
+            "Lucerne",
+            "Glaive",
+            "Vulgar Militia Shotel",
             "Vulgar Militia Saw",
-            "Commander's Standard",
-            "Dragon Halberd",
+            "Guardian's Swordspear",
             "Gargoyle's Halberd",
             "Gargoyle's Black Halberd",
-            "Golem's Halberd",
-            "Ripple Crescent Halberd"
+            "Nightrider Glaive",
+            "Pest's Glaive",
+            "Ripple Crescent Halberd",
+            "Golden Halberd",
+            "Dragon Halberd",
+            "Loretta's War Sickle",
+            "Commander's Standard",
+            "Spirit Glaive",
+            "Poleblade of the Bud"
           ]
         },
         {
