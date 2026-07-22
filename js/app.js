@@ -74,7 +74,9 @@ function allItemsForLeaf(leafKey, leaf, catId) {
     built = [];
     (leaf.items || []).forEach((setObj, i) => {
       PIECE_SLOTS.forEach(slot => {
-        const pieceName = (slot.id === 'helm' && setObj.helm) ? setObj.helm : null;
+        const pieceName = (slot.id === 'helm' && setObj.helm) ? setObj.helm
+          : (slot.id === 'chest' && setObj.chest) ? setObj.chest
+          : null;
         built.push({
           id: leafKey + '-' + i + '-' + slot.id,
           setIndex: i,
@@ -202,7 +204,9 @@ function renderContent() {
         const pieceId = leafKey + '-' + i + '-' + slot.id;
         const isChecked = !!checked[pieceId];
         if (isChecked) setDone++;
-        const pieceName = (slot.id === 'helm' && setObj.helm) ? setObj.helm : null;
+        const pieceName = (slot.id === 'helm' && setObj.helm) ? setObj.helm
+          : (slot.id === 'chest' && setObj.chest) ? setObj.chest
+          : null;
         const slotLabel = slot[langCode];
         return '<div class="apiece ' + (isChecked ? 'checked' : '') + '" data-id="' + pieceId + '">'
           + '<div class="seal small"></div>'
