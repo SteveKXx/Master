@@ -692,637 +692,764 @@
             {
               "name": "Alberich's Set",
               "helm": "Alberich's Pointed Hat",
-              "chest": "Alberich's Robe"
+              "chest": "Alberich's Robe",
+              "gauntlets": "Alberich's Bracers"
             },
             {
               "name": "Albinauric Set",
               "helm": "Albinauric Mask",
-              "chest": null
+              "chest": null,
+              "gauntlets": null
             },
             {
               "name": "All-Knowing Set",
               "helm": "All-Knowing Helm",
-              "chest": "All-Knowing Armor"
+              "chest": "All-Knowing Armor",
+              "gauntlets": "All-Knowing Gauntlets"
             },
             {
               "name": "Aristocrat Set",
               "helm": "Aristocrat Hat",
-              "chest": "Aristocrat Coat"
+              "chest": "Aristocrat Coat",
+              "gauntlets": null
             },
             {
               "name": "Astrologer Set",
               "helm": "Astrologer Hood",
-              "chest": "Astrologer Robe"
+              "chest": "Astrologer Robe",
+              "gauntlets": "Astrologer Gloves"
             },
             {
               "name": "Azur's Glintstone Set",
               "helm": "Azur's Glintstone Crown",
-              "chest": "Azur's Glintstone Robe"
+              "chest": "Azur's Glintstone Robe",
+              "gauntlets": "Azur's Manchettes"
             },
             {
               "name": "Bandit Set",
               "helm": "Bandit Mask",
-              "chest": "Bandit Garb"
+              "chest": "Bandit Garb",
+              "gauntlets": "Bandit Manchettes"
             },
             {
               "name": "Banished Knight Set",
               "helm": "Banished Knight Helm",
-              "chest": "Banished Knight Armor"
+              "chest": "Banished Knight Armor",
+              "gauntlets": "Banished Knight Gauntlets"
             },
             {
               "name": "Battlemage Set",
               "helm": null,
-              "chest": "Battlemage Robe"
+              "chest": "Battlemage Robe",
+              "gauntlets": "Battlemage Manchettes"
             },
             {
               "name": "Beast Champion Set",
               "helm": "Beast Champion Helm",
-              "chest": "Beast Champion Armor"
+              "chest": "Beast Champion Armor",
+              "gauntlets": "Beast Champion Gauntlets"
             },
             {
               "name": "Black Knife Set",
               "helm": "Black Dumpling",
-              "chest": "Black Knife Armor"
+              "chest": "Black Knife Armor",
+              "gauntlets": "Black Knife Gauntlets"
             },
             {
               "name": "Blackflame Monk Set",
               "helm": "Blackflame Monk Hood",
-              "chest": "Blackflame Monk Armor"
+              "chest": "Blackflame Monk Armor",
+              "gauntlets": "Blackflame Monk Gauntlets"
             },
             {
               "name": "Blaidd's Set",
               "helm": null,
-              "chest": "Blaidd's Armor"
+              "chest": "Blaidd's Armor",
+              "gauntlets": "Blaidd's Gauntlets"
             },
             {
               "name": "Bloodhound Knight Set",
               "helm": "Bloodhound Knight Helm",
-              "chest": "Bloodhound Knight Armor"
+              "chest": "Bloodhound Knight Armor",
+              "gauntlets": "Bloodhound Knight Gauntlets"
             },
             {
               "name": "Bloodsoaked Set",
               "helm": "Bloodsoaked Mask",
-              "chest": "Bloodsoaked Tabard"
+              "chest": "Bloodsoaked Tabard",
+              "gauntlets": "Bloodsoaked Manchettes"
             },
             {
               "name": "Blue Cloth Set",
               "helm": "Blue Cloth Cowl",
-              "chest": "Blue Cloth Vest"
+              "chest": "Blue Cloth Vest",
+              "gauntlets": "Blue Silver Bracelets"
             },
             {
               "name": "Blue Festive Set",
               "helm": "Blue Cloth Cowl",
-              "chest": "Blue Cloth Vest"
+              "chest": "Blue Cloth Vest",
+              "gauntlets": "Blue Silver Bracelets"
             },
             {
               "name": "Blue Silver Set",
               "helm": "Blue Cloth Cowl",
-              "chest": "Blue Cloth Vest"
+              "chest": "Blue Cloth Vest",
+              "gauntlets": "Blue Silver Bracelets"
             },
             {
               "name": "Briar Set",
               "helm": "Briar Helm",
-              "chest": "Briar Armor"
+              "chest": "Briar Armor",
+              "gauntlets": "Briar Gauntlets"
             },
             {
               "name": "Bull-Goat Set",
               "helm": "Bull-Goat Helm",
-              "chest": "Bull-Goat Armor"
+              "chest": "Bull-Goat Armor",
+              "gauntlets": "Bull-Goat Gauntlets"
             },
             {
               "name": "Carian Knight Set",
               "helm": "Carian Knight Helm",
-              "chest": "Carian Knight Armor"
+              "chest": "Carian Knight Armor",
+              "gauntlets": "Carian Knight Gauntlets"
             },
             {
               "name": "Chain Set",
               "helm": "Chain Coif",
-              "chest": "Chain Armor"
+              "chest": "Chain Armor",
+              "gauntlets": "Chain Gauntlets"
             },
             {
               "name": "Champion Set",
               "helm": "Beast Champion Helm",
-              "chest": "Beast Champion Armor"
+              "chest": "Beast Champion Armor",
+              "gauntlets": "Beast Champion Gauntlets"
             },
             {
               "name": "Cleanrot Set",
               "helm": "Cleanrot Helm",
-              "chest": "Cleanrot Armor"
+              "chest": "Cleanrot Armor",
+              "gauntlets": "Cleanrot Gauntlets"
             },
             {
               "name": "Commoner's Set",
               "helm": "Commoner's Headband",
-              "chest": "Commoner's Garb"
+              "chest": "Commoner's Garb",
+              "gauntlets": null
             },
             {
               "name": "Confessor Set",
               "helm": "Confessor Hood",
-              "chest": null
+              "chest": null,
+              "gauntlets": "Confessor Gloves"
             },
             {
               "name": "Consort's Set",
               "helm": "Consort's Mask",
-              "chest": null
+              "chest": null,
+              "gauntlets": null
             },
             {
               "name": "Crucible Axe Set",
               "helm": "Crucible Axe Helm",
-              "chest": null
+              "chest": null,
+              "gauntlets": "Crucible Gauntlets"
             },
             {
               "name": "Crucible Tree Set",
               "helm": "Crucible Axe Helm",
-              "chest": null
+              "chest": null,
+              "gauntlets": "Crucible Gauntlets"
             },
             {
               "name": "Cuckoo Knight Set",
               "helm": "Cuckoo Knight Helm",
-              "chest": null
+              "chest": null,
+              "gauntlets": "Cuckoo Knight Gauntlets"
             },
             {
               "name": "Depraved Perfumer Set",
               "helm": "Depraved Perfumer Headscarf",
-              "chest": null
+              "chest": null,
+              "gauntlets": "Depraved Perfumer Gloves"
             },
             {
               "name": "Drake Knight Set",
               "helm": "Drake Knight Helm",
-              "chest": "Drake Knight Armor"
+              "chest": "Drake Knight Armor",
+              "gauntlets": "Drake Knight Gauntlets"
             },
             {
               "name": "Duelist Set",
               "helm": "Rotten Duelist Helm",
-              "chest": null
+              "chest": null,
+              "gauntlets": null
             },
             {
               "name": "Eccentric Set",
               "helm": null,
-              "chest": "Eccentric's Armor"
+              "chest": "Eccentric's Armor",
+              "gauntlets": "Eccentric's Manchettes"
             },
             {
               "name": "Elden Lord Set",
               "helm": null,
-              "chest": "Elden Lord Armor"
+              "chest": "Elden Lord Armor",
+              "gauntlets": "Elden Lord Bracers"
             },
             {
               "name": "Errant Sorcerer Set",
               "helm": null,
-              "chest": "Errant Sorcerer Robe"
+              "chest": "Errant Sorcerer Robe",
+              "gauntlets": "Errant Sorcerer Manchettes"
             },
             {
               "name": "Exile Set",
               "helm": null,
-              "chest": "Exile Armor"
+              "chest": "Exile Armor",
+              "gauntlets": "Exile Gauntlets"
             },
             {
               "name": "Festive Set",
               "helm": "Blue Festive Hood",
-              "chest": "Blue Festive Garb"
+              "chest": "Blue Festive Garb",
+              "gauntlets": null
             },
             {
               "name": "Fia's Set",
               "helm": null,
-              "chest": "Fia's Robe"
+              "chest": "Fia's Robe",
+              "gauntlets": null
             },
             {
               "name": "Finger Maiden Set",
               "helm": null,
-              "chest": "Finger Maiden Robe"
+              "chest": "Finger Maiden Robe",
+              "gauntlets": "Fingerprint Gauntlets"
             },
             {
               "name": "Fingerprint Set",
               "helm": null,
-              "chest": "Fingerprint Armor"
+              "chest": "Fingerprint Armor",
+              "gauntlets": "Fingerprint Gauntlets"
             },
             {
               "name": "Fire Monk Set",
               "helm": "Fire Prelate Helm",
-              "chest": "Fire Knight Armor"
+              "chest": "Fire Knight Armor",
+              "gauntlets": "Fire Knight Gauntlets"
             },
             {
               "name": "Fire Prelate Set",
               "helm": "Fire Prelate Helm",
-              "chest": "Fire Knight Armor"
+              "chest": "Fire Knight Armor",
+              "gauntlets": "Fire Knight Gauntlets"
             },
             {
               "name": "Fur Set",
               "helm": null,
-              "chest": "Fur Raiment"
+              "chest": "Fur Raiment",
+              "gauntlets": null
             },
             {
               "name": "Gelmir Knight Set",
               "helm": "Gelmir Knight Helm",
-              "chest": "Gelmir Knight Armor"
+              "chest": "Gelmir Knight Armor",
+              "gauntlets": "Gelmir Knight Gauntlets"
             },
             {
               "name": "General Radahn Set",
               "helm": null,
-              "chest": null
+              "chest": null,
+              "gauntlets": null
             },
             {
               "name": "Godrick Foot Soldier Set",
               "helm": "Godrick Knight Helm",
-              "chest": "Godrick Knight Armor"
+              "chest": "Godrick Knight Armor",
+              "gauntlets": "Godrick Knight Gauntlets"
             },
             {
               "name": "Godrick Knight Set",
               "helm": "Godrick Knight Helm",
-              "chest": "Godrick Knight Armor"
+              "chest": "Godrick Knight Armor",
+              "gauntlets": "Godrick Knight Gauntlets"
             },
             {
               "name": "Godrick Soldier Set",
               "helm": "Godrick Knight Helm",
-              "chest": "Godrick Knight Armor"
+              "chest": "Godrick Knight Armor",
+              "gauntlets": "Godrick Knight Gauntlets"
             },
             {
               "name": "Godskin Apostle Set",
               "helm": "Godskin Apostle Hood",
-              "chest": "Godskin Apostle Robe"
+              "chest": "Godskin Apostle Robe",
+              "gauntlets": "Godskin Apostle Bracelets"
             },
             {
               "name": "Godskin Noble Set",
               "helm": "Godskin Apostle Hood",
-              "chest": "Godskin Apostle Robe"
+              "chest": "Godskin Apostle Robe",
+              "gauntlets": "Godskin Apostle Bracelets"
             },
             {
               "name": "Goldmask's Set",
               "helm": null,
-              "chest": "Goldmask's Rags"
+              "chest": "Goldmask's Rags",
+              "gauntlets": null
             },
             {
               "name": "Guardian Set",
               "helm": "Guardian Mask",
-              "chest": "Guardian Garb"
+              "chest": "Guardian Garb",
+              "gauntlets": "Guardian Bracers"
             },
             {
               "name": "Guilty Set",
               "helm": "Guilty Hood",
-              "chest": null
+              "chest": null,
+              "gauntlets": null
             },
             {
               "name": "Haligtree Foot Soldier Set",
               "helm": "Haligtree Helm",
-              "chest": "Haligtree Crest Surcoat"
+              "chest": "Haligtree Crest Surcoat",
+              "gauntlets": "Haligtree Gauntlets"
             },
             {
               "name": "Haligtree Knight Set",
               "helm": "Haligtree Helm",
-              "chest": "Haligtree Crest Surcoat"
+              "chest": "Haligtree Crest Surcoat",
+              "gauntlets": "Haligtree Gauntlets"
             },
             {
               "name": "Haligtree Soldier Set",
               "helm": "Haligtree Helm",
-              "chest": "Haligtree Crest Surcoat"
+              "chest": "Haligtree Crest Surcoat",
+              "gauntlets": "Haligtree Gauntlets"
             },
             {
               "name": "High Page Set",
               "helm": "High Page Hood",
-              "chest": "High Page Clothes"
+              "chest": "High Page Clothes",
+              "gauntlets": "High Priest Gloves"
             },
             {
               "name": "Highwayman Set",
               "helm": "Highwayman Hood",
-              "chest": "Highwayman Cloth Armor"
+              "chest": "Highwayman Cloth Armor",
+              "gauntlets": "Highwayman Gauntlets"
             },
             {
               "name": "Hoslow's Set",
               "helm": "Hoslow's Helm",
-              "chest": "Hoslow's Armor"
+              "chest": "Hoslow's Armor",
+              "gauntlets": "Hoslow's Gauntlets"
             },
             {
               "name": "House Marais Set",
               "helm": null,
-              "chest": null
+              "chest": null,
+              "gauntlets": null
             },
             {
               "name": "Iron Set",
               "helm": "Blackguard's Iron Mask",
-              "chest": "Iron Rivet Armor"
+              "chest": "Iron Rivet Armor",
+              "gauntlets": "Iron Gauntlets"
             },
             {
               "name": "Juvenile Scholar Set",
               "helm": "Juvenile Scholar Cap",
-              "chest": "Juvenile Scholar Robe"
+              "chest": "Juvenile Scholar Robe",
+              "gauntlets": null
             },
             {
               "name": "Kaiden Set",
               "helm": "Kaiden Helm",
-              "chest": "Kaiden Armor"
+              "chest": "Kaiden Armor",
+              "gauntlets": "Kaiden Gauntlets"
             },
             {
               "name": "Knight Set",
               "helm": "Banished Knight Helm",
-              "chest": "Banished Knight Armor"
+              "chest": "Banished Knight Armor",
+              "gauntlets": "Banished Knight Gauntlets"
             },
             {
               "name": "Land of Reeds Set",
               "helm": "Land of Reeds Helm",
-              "chest": "Highland Attire"
+              "chest": "Highland Attire",
+              "gauntlets": "Land of Reeds Gauntlets"
             },
             {
               "name": "Lazuli Sorcerer Set",
               "helm": "Lazuli Glintstone Crown",
-              "chest": "Lazuli Robe"
+              "chest": "Lazuli Robe",
+              "gauntlets": null
             },
             {
               "name": "Leather Set",
               "helm": "Brave's Leather Helm",
-              "chest": "Leather Armor"
+              "chest": "Leather Armor",
+              "gauntlets": "Leather Gloves"
             },
             {
               "name": "Leyndell Foot Soldier Set",
               "helm": "Leyndell Knight Helm",
-              "chest": "Leyndell Knight Armor"
+              "chest": "Leyndell Knight Armor",
+              "gauntlets": "Leyndell Knight Gauntlets"
             },
             {
               "name": "Leyndell Knight Set",
               "helm": "Leyndell Knight Helm",
-              "chest": "Leyndell Knight Armor"
+              "chest": "Leyndell Knight Armor",
+              "gauntlets": "Leyndell Knight Gauntlets"
             },
             {
               "name": "Leyndell Soldier Set",
               "helm": "Leyndell Knight Helm",
-              "chest": "Leyndell Knight Armor"
+              "chest": "Leyndell Knight Armor",
+              "gauntlets": "Leyndell Knight Gauntlets"
             },
             {
               "name": "Lionel's Set",
               "helm": "Lionel's Helm",
-              "chest": "Lionel's Armor"
+              "chest": "Lionel's Armor",
+              "gauntlets": "Lionel's Gauntlets"
             },
             {
               "name": "Lusat's Set",
               "helm": "Lusat's Glintstone Crown",
-              "chest": "Lusat's Robe"
+              "chest": "Lusat's Robe",
+              "gauntlets": "Lusat's Manchettes"
             },
             {
               "name": "Malenia's Set",
               "helm": "Malenia's Winged Helm",
-              "chest": "Malenia's Armor"
+              "chest": "Malenia's Armor",
+              "gauntlets": "Malenia's Gauntlet"
             },
             {
               "name": "Malformed Dragon Set",
               "helm": "Malformed Dragon Helm",
-              "chest": null
+              "chest": null,
+              "gauntlets": "Malformed Dragon Gauntlets"
             },
             {
               "name": "Maliketh's Set",
               "helm": "Maliketh's Helm",
-              "chest": "Maliketh's Armor"
+              "chest": "Maliketh's Armor",
+              "gauntlets": "Maliketh's Gauntlets"
             },
             {
               "name": "Marionette Soldier Set",
               "helm": "Marionette Soldier Birdhelm",
-              "chest": "Marionette Soldier Armor"
+              "chest": "Marionette Soldier Armor",
+              "gauntlets": null
             },
             {
               "name": "Mausoleum Foot Soldier Set",
               "helm": null,
-              "chest": "Mausoleum Knight Armor"
+              "chest": "Mausoleum Knight Armor",
+              "gauntlets": "Mausoleum Gauntlets"
             },
             {
               "name": "Mausoleum Knight Set",
               "helm": null,
-              "chest": "Mausoleum Knight Armor"
+              "chest": "Mausoleum Knight Armor",
+              "gauntlets": "Mausoleum Gauntlets"
             },
             {
               "name": "Mausoleum Soldier Set",
               "helm": null,
-              "chest": "Mausoleum Knight Armor"
+              "chest": "Mausoleum Knight Armor",
+              "gauntlets": "Mausoleum Gauntlets"
             },
             {
               "name": "Millicent's Set",
               "helm": null,
-              "chest": "Millicent's Robe"
+              "chest": "Millicent's Robe",
+              "gauntlets": "Millicent's Gloves"
             },
             {
               "name": "Mushroom Set",
               "helm": "Mushroom Crown",
-              "chest": "Mushroom Body"
+              "chest": "Mushroom Body",
+              "gauntlets": "Mushroom Arms"
             },
             {
               "name": "Night Maiden Set",
               "helm": "Banished Knight Helm",
-              "chest": "Armor of Night"
+              "chest": "Armor of Night",
+              "gauntlets": "Banished Knight Gauntlets"
             },
             {
               "name": "Night's Cavalry Set",
               "helm": "Night's Cavalry Helm",
-              "chest": "Night's Cavalry Armor"
+              "chest": "Night's Cavalry Armor",
+              "gauntlets": "Night's Cavalry Gauntlets"
             },
             {
               "name": "Noble's Set",
               "helm": null,
-              "chest": "Noble's Traveling Garb"
+              "chest": "Noble's Traveling Garb",
+              "gauntlets": "Noble's Gloves"
             },
             {
               "name": "Nomadic Merchant's Set",
               "helm": "Nomadic Merchant's Chapeau",
-              "chest": "Nomadic Merchant's Finery"
+              "chest": "Nomadic Merchant's Finery",
+              "gauntlets": null
             },
             {
               "name": "Nox Monk Set",
               "helm": "Nox Mirrorhelm",
-              "chest": "Nox Monk Armor"
+              "chest": "Nox Monk Armor",
+              "gauntlets": "Nox Bracelets"
             },
             {
               "name": "Nox Swordstress Set",
               "helm": "Nox Mirrorhelm",
-              "chest": "Nox Monk Armor"
+              "chest": "Nox Monk Armor",
+              "gauntlets": "Nox Bracelets"
             },
             {
               "name": "Old Aristocrat Set",
               "helm": "Foot Soldier Cap",
-              "chest": "Common Soldier Cloth Armor"
+              "chest": "Common Soldier Cloth Armor",
+              "gauntlets": "Common Soldier Gauntlets"
             },
             {
               "name": "Omen Set",
               "helm": "Omen Helm",
-              "chest": "Fell Omen Cloak"
+              "chest": "Fell Omen Cloak",
+              "gauntlets": "Omen Gauntlets"
             },
             {
               "name": "Omenkiller Set",
               "helm": null,
-              "chest": "Omenkiller Robe"
+              "chest": "Omenkiller Robe",
+              "gauntlets": "Omenkiller Long Gloves"
             },
             {
               "name": "Page Set",
               "helm": "High Page Hood",
-              "chest": "High Page Clothes"
+              "chest": "High Page Clothes",
+              "gauntlets": null
             },
             {
               "name": "Perfumer Set",
               "helm": "Depraved Perfumer Headscarf",
-              "chest": "Perfumer Robe"
+              "chest": "Perfumer Robe",
+              "gauntlets": "Depraved Perfumer Gloves"
             },
             {
               "name": "Perfumer Traveler's Set",
               "helm": "Depraved Perfumer Headscarf",
-              "chest": "Perfumer Robe"
+              "chest": "Perfumer Robe",
+              "gauntlets": "Depraved Perfumer Gloves"
             },
             {
               "name": "Preceptor's Set",
               "helm": null,
-              "chest": "Preceptor's Long Gown"
+              "chest": "Preceptor's Long Gown",
+              "gauntlets": "Preceptor's Gloves"
             },
             {
               "name": "Prisoner Set",
               "helm": null,
-              "chest": "Prisoner Clothing"
+              "chest": "Prisoner Clothing",
+              "gauntlets": null
             },
             {
               "name": "Prophet Set",
               "helm": null,
-              "chest": "Prophet Robe"
+              "chest": "Prophet Robe",
+              "gauntlets": null
             },
             {
               "name": "Queen of the Full Moon Set",
               "helm": null,
-              "chest": "Queen's Robe"
+              "chest": "Queen's Robe",
+              "gauntlets": "Queen's Bracelets"
             },
             {
               "name": "Radahn Foot Soldier Set",
               "helm": "Radahn's Redmane Helm",
-              "chest": null
+              "chest": null,
+              "gauntlets": "Radahn Soldier Gauntlets"
             },
             {
               "name": "Radahn Soldier Set",
               "helm": "Radahn's Redmane Helm",
-              "chest": null
+              "chest": null,
+              "gauntlets": "Radahn Soldier Gauntlets"
             },
             {
               "name": "Raging Wolf Set",
               "helm": "Raging Wolf Helm",
-              "chest": "Raging Wolf Armor"
+              "chest": "Raging Wolf Armor",
+              "gauntlets": "Raging Wolf Gauntlets"
             },
             {
               "name": "Raptor's Set",
               "helm": null,
-              "chest": "Raptor's Black Feathers"
+              "chest": "Raptor's Black Feathers",
+              "gauntlets": null
             },
             {
               "name": "Raya Lucarian Foot Soldier Set",
               "helm": "Raya Lucarian Helm",
-              "chest": "Raya Lucarian Robe"
+              "chest": "Raya Lucarian Robe",
+              "gauntlets": "Raya Lucarian Gauntlets"
             },
             {
               "name": "Raya Lucarian Soldier Set",
               "helm": "Raya Lucarian Helm",
-              "chest": "Raya Lucarian Robe"
+              "chest": "Raya Lucarian Robe",
+              "gauntlets": "Raya Lucarian Gauntlets"
             },
             {
               "name": "Raya Lucarian Sorcerer Set",
               "helm": "Raya Lucarian Helm",
-              "chest": "Raya Lucarian Robe"
+              "chest": "Raya Lucarian Robe",
+              "gauntlets": "Raya Lucarian Gauntlets"
             },
             {
               "name": "Redmane Knight Set",
               "helm": "Radahn's Redmane Helm",
-              "chest": "Redmane Knight Armor"
+              "chest": "Redmane Knight Armor",
+              "gauntlets": "Redmane Knight Gauntlets"
             },
             {
               "name": "Ronin's Set",
               "helm": null,
-              "chest": "Ronin's Armor"
+              "chest": "Ronin's Armor",
+              "gauntlets": "Ronin's Gauntlets"
             },
             {
               "name": "Rotten Duelist Set",
               "helm": "Rotten Duelist Helm",
-              "chest": "Rotten Gravekeeper Cloak"
+              "chest": "Rotten Gravekeeper Cloak",
+              "gauntlets": null
             },
             {
               "name": "Royal Knight Set",
               "helm": "Royal Knight Helm",
-              "chest": null
+              "chest": null,
+              "gauntlets": "Royal Knight Gauntlets"
             },
             {
               "name": "Royal Remains Set",
               "helm": "Royal Knight Helm",
-              "chest": null
+              "chest": null,
+              "gauntlets": "Royal Knight Gauntlets"
             },
             {
               "name": "Ruler's Set",
               "helm": "Ruler's Mask",
-              "chest": "Ruler's Robe"
+              "chest": "Ruler's Robe",
+              "gauntlets": null
             },
             {
               "name": "Sage Set",
               "helm": "Sage Hood",
-              "chest": "Sage Robe"
+              "chest": "Sage Robe",
+              "gauntlets": null
             },
             {
               "name": "Sanguine Noble Set",
               "helm": "Sanguine Noble Hood",
-              "chest": null
+              "chest": null,
+              "gauntlets": null
             },
             {
               "name": "Scaled Set",
               "helm": "Scaled Helm",
-              "chest": null
+              "chest": null,
+              "gauntlets": "Scaled Gauntlets"
             },
             {
               "name": "Shaman Set",
               "helm": null,
-              "chest": null
+              "chest": null,
+              "gauntlets": null
             },
             {
               "name": "Snow Witch Set",
               "helm": "Snow Witch Hat",
-              "chest": null
+              "chest": null,
+              "gauntlets": null
             },
             {
               "name": "Spellblade Set",
               "helm": "Spellblade's Pointed Hat",
-              "chest": null
+              "chest": null,
+              "gauntlets": "Spellblade's Gloves"
             },
             {
               "name": "Melina's Set",
               "helm": null,
-              "chest": null
+              "chest": null,
+              "gauntlets": null
             },
             {
               "name": "Traveling Maiden Set",
               "helm": "Traveling Maiden Hood",
-              "chest": "Noble's Traveling Garb"
+              "chest": "Noble's Traveling Garb",
+              "gauntlets": "Traveling Maiden Gloves"
             },
             {
               "name": "Tree Sentinel Set",
               "helm": "Crucible Tree Helm",
-              "chest": "Erdtree Surcoat"
+              "chest": "Erdtree Surcoat",
+              "gauntlets": "Haligtree Gauntlets"
             },
             {
               "name": "Twinned Set",
               "helm": "Twinned Helm",
-              "chest": null
+              "chest": null,
+              "gauntlets": "Twinned Gauntlets"
             },
             {
               "name": "Vagabond Knight Set",
               "helm": "Vagabond Knight Helm",
-              "chest": null
+              "chest": null,
+              "gauntlets": "Vagabond Knight Gauntlets"
             },
             {
               "name": "Veteran's Set",
               "helm": "Veteran's Helm",
-              "chest": null
+              "chest": null,
+              "gauntlets": "Veteran's Gauntlets"
             },
             {
               "name": "Vulgar Militia Set",
               "helm": "Vulgar Militia Helm",
-              "chest": null
+              "chest": null,
+              "gauntlets": "Vulgar Militia Gauntlets"
             },
             {
               "name": "War Surgeon Set",
               "helm": "Ash-of-War Scarab",
-              "chest": "Divine Beast Warrior Armor"
+              "chest": "Divine Beast Warrior Armor",
+              "gauntlets": "Divine Bird Warrior Gauntlets"
             },
             {
               "name": "White Reed Set",
               "helm": "White Mask",
-              "chest": null
+              "chest": null,
+              "gauntlets": "White Reed Gauntlets"
             },
             {
               "name": "Zamor Set",
               "helm": null,
-              "chest": "Zamor Armor"
+              "chest": "Zamor Armor",
+              "gauntlets": "Zamor Bracelets"
             }
           ]
         },
@@ -1333,152 +1460,182 @@
             {
               "name": "Ansbach's Set",
               "helm": null,
-              "chest": "Ansbach's Attire"
+              "chest": "Ansbach's Attire",
+              "gauntlets": "Ansbach's Manchettes"
             },
             {
               "name": "Ascetic's Set",
               "helm": null,
-              "chest": "Ascetic's Loincloth"
+              "chest": "Ascetic's Loincloth",
+              "gauntlets": "Ascetic's Wrist Guards"
             },
             {
               "name": "Black Knight Set",
               "helm": "Black Dumpling",
-              "chest": "Black Knife Armor"
+              "chest": "Black Knife Armor",
+              "gauntlets": "Black Knife Gauntlets"
             },
             {
               "name": "Common Soldier Set",
               "helm": "Commoner's Headband",
-              "chest": "Common Soldier Cloth Armor"
+              "chest": "Common Soldier Cloth Armor",
+              "gauntlets": "Common Soldier Gauntlets"
             },
             {
               "name": "Dancer's Set",
               "helm": "Dancer's Hood",
-              "chest": null
+              "chest": null,
+              "gauntlets": "Dancer's Bracer"
             },
             {
               "name": "Dane's Set",
               "helm": "Dane's Hat",
-              "chest": null
+              "chest": null,
+              "gauntlets": null
             },
             {
               "name": "Death Knight Set",
               "helm": "Death Mask Helm",
-              "chest": null
+              "chest": null,
+              "gauntlets": "Death Knight Gauntlets"
             },
             {
               "name": "Divine Beast Set",
               "helm": "Divine Beast Helm",
-              "chest": "Divine Beast Warrior Armor"
+              "chest": "Divine Beast Warrior Armor",
+              "gauntlets": "Divine Bird Warrior Gauntlets"
             },
             {
               "name": "Divine Bird Set",
               "helm": "Divine Beast Helm",
-              "chest": "Divine Beast Warrior Armor"
+              "chest": "Divine Beast Warrior Armor",
+              "gauntlets": "Divine Bird Warrior Gauntlets"
             },
             {
               "name": "Fire Knight Set",
               "helm": "Fire Prelate Helm",
-              "chest": "Fire Knight Armor"
+              "chest": "Fire Knight Armor",
+              "gauntlets": "Fire Knight Gauntlets"
             },
             {
               "name": "Freyja's Set",
               "helm": "Freyja's Helm",
-              "chest": "Freyja's Armor"
+              "chest": "Freyja's Armor",
+              "gauntlets": null
             },
             {
               "name": "Gaius's Set",
               "helm": "Gaius's Helm",
-              "chest": "Gaius's Armor"
+              "chest": "Gaius's Armor",
+              "gauntlets": "Gaius's Gauntlets"
             },
             {
               "name": "Gravebird Set",
               "helm": "Gravebird Helm",
-              "chest": "Gravebird's Blackquill Armor"
+              "chest": "Gravebird's Blackquill Armor",
+              "gauntlets": null
             },
             {
               "name": "High Priest Set",
               "helm": "High Page Hood",
-              "chest": "High Page Clothes"
+              "chest": "High Page Clothes",
+              "gauntlets": "High Priest Gloves"
             },
             {
               "name": "Horned Warrior Set",
               "helm": "Great Horned Headband",
-              "chest": "Horned Warrior Armor"
+              "chest": "Horned Warrior Armor",
+              "gauntlets": null
             },
             {
               "name": "Hornsent Set",
               "helm": null,
-              "chest": null
+              "chest": null,
+              "gauntlets": null
             },
             {
               "name": "Igon's Set",
               "helm": "Igon's Helm",
-              "chest": "Igon's Armor"
+              "chest": "Igon's Armor",
+              "gauntlets": null
             },
             {
               "name": "Iron Rivet Set",
               "helm": "Blackguard's Iron Mask",
-              "chest": "Iron Rivet Armor"
+              "chest": "Iron Rivet Armor",
+              "gauntlets": "Iron Gauntlets"
             },
             {
               "name": "Highland Warrior Set",
               "helm": null,
-              "chest": "Highland Attire"
+              "chest": "Highland Attire",
+              "gauntlets": null
             },
             {
               "name": "Messmer Soldier Set",
               "helm": "Messmer Soldier Helm",
-              "chest": "Messmer Soldier Armor"
+              "chest": "Messmer Soldier Armor",
+              "gauntlets": null
             },
             {
               "name": "Messmer's Set",
               "helm": "Messmer's Helm",
-              "chest": "Messmer's Armor"
+              "chest": "Messmer's Armor",
+              "gauntlets": null
             },
             {
               "name": "Night Set",
               "helm": "Banished Knight Helm",
-              "chest": "Armor of Night"
+              "chest": "Armor of Night",
+              "gauntlets": "Banished Knight Gauntlets"
             },
             {
               "name": "Oathseeker Knight Set",
               "helm": "Oathseeker Knight Helm",
-              "chest": "Oathseeker Knight Armor"
+              "chest": "Oathseeker Knight Armor",
+              "gauntlets": null
             },
             {
               "name": "Rakshasa Set",
               "helm": "Rakshasa Helm",
-              "chest": "Rakshasa Armor"
+              "chest": "Rakshasa Armor",
+              "gauntlets": "Rakshasa Gauntlets"
             },
             {
               "name": "Rellana's Set",
               "helm": "Rellana's Helm",
-              "chest": null
+              "chest": null,
+              "gauntlets": "Rellana's Gloves"
             },
             {
               "name": "Shadow Militiaman Set",
               "helm": "Shadow Militiaman Helm",
-              "chest": null
+              "chest": null,
+              "gauntlets": null
             },
             {
               "name": "Solitude Set",
               "helm": "Helm of Solitude",
-              "chest": "Armor of Solitude"
+              "chest": "Armor of Solitude",
+              "gauntlets": "Gauntlets of Solitude"
             },
             {
               "name": "Thiollier's Set",
               "helm": "Thiollier's Mask",
-              "chest": null
+              "chest": null,
+              "gauntlets": "Thiollier's Gloves"
             },
             {
               "name": "Verdigris Set",
               "helm": "Verdigris Helm",
-              "chest": null
+              "chest": null,
+              "gauntlets": null
             },
             {
               "name": "Young Lion's Set",
               "helm": "Young Lion's Helm",
-              "chest": null
+              "chest": null,
+              "gauntlets": null
             }
           ]
         }
