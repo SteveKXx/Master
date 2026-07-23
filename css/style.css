@@ -118,6 +118,8 @@ body{
   flex:1 1 140px;
   min-width:140px;
   text-align:center;
+  box-sizing:border-box;
+  overflow:hidden;
 }
 .nav button:hover{border-color:var(--border);color:var(--text);}
 .nav button.active{
@@ -125,9 +127,16 @@ body{
   border-color:var(--gold);
   color:var(--gold-bright);
 }
-.nav button .count{color:var(--text-dim);font-family:'EB Garamond',serif;font-style:italic;margin-left:4px;}
-.nav button, .subnav button{display:flex;align-items:center;gap:8px;}
-.nav button .btn-label, .subnav button .btn-label{flex:1;text-align:left;}
+.nav button .count{color:var(--text-dim);font-family:'EB Garamond',serif;font-style:italic;margin-left:4px;flex-shrink:0;white-space:nowrap;}
+.nav button, .subnav button{display:flex;align-items:center;gap:6px;}
+.nav button .btn-label, .subnav button .btn-label{
+  flex:1 1 auto;
+  text-align:left;
+  min-width:0;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
 
 .pdot{
   display:inline-block;
@@ -157,6 +166,9 @@ body{
   padding:6px 12px;
   cursor:pointer;
   transition:all .2s ease;
+  box-sizing:border-box;
+  overflow:hidden;
+  max-width:100%;
 }
 .subnav button:hover{border-color:var(--border);color:var(--text);}
 .subnav button.active{
@@ -164,7 +176,7 @@ body{
   border-color:var(--gold);
   color:var(--gold-bright);
 }
-.subnav button .count{color:var(--text-dim);font-style:italic;}
+.subnav button .count{color:var(--text-dim);font-style:italic;flex-shrink:0;white-space:nowrap;}
 
 .empty-note{
   color:var(--text-dim);
